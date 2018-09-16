@@ -1,5 +1,5 @@
 <?php
-require_once '..\controller\FuncaoSistema.php';
+require_once 'D:\Sistemas\XAmpp\htdocs\AssociacaoAPP_MVC\controller\FuncaoSistema.php';
 class FuncaoSistemaTest extends PHPUnit_Framework_TestCase {
 
     /**

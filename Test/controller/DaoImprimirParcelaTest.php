@@ -1,5 +1,5 @@
 <?php
-require_once '..\controller\DaoImprimirParcela.php';
+require_once 'D:\Sistemas\XAmpp\htdocs\AssociacaoAPP_MVC\controller\DaoImprimirParcela.php';
 class DaoImprimirParcelaTest extends PHPUnit_Framework_TestCase {
 
     /**
