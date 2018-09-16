@@ -1,6 +1,6 @@
 <?php
 require_once ('Conexao.php');
-require_once ('model/Relatorio.php');
+require_once ('D:\Sistemas\XAmpp\htdocs\AssociacaoAPP_MVC\model\Relatorio.php');
 
 class DaoImprimirParcela extends Conexao implements Relatorio {
  const CLASSE_VIEW="ImprimirParcela";

@@ -1,5 +1,5 @@
 <?php
-require_once ('controller/Conexao.php');
+require_once ('D:\Sistemas\XAmpp\htdocs\AssociacaoAPP_MVC\controller\Conexao.php');
 class FuncaoSistema {
     
  public function opcaoSelecione() {
