@@ -7,7 +7,7 @@ class DaoHome extends Conexao implements View {
  const CLASSE_VIEW="Home";
 
  public function getClassView() {
-     return self::CLASSE_VIEW;
+   return self::CLASSE_VIEW;
  }
  
  public function executaView() {

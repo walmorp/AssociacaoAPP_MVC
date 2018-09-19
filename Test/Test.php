@@ -1,8 +1,5 @@
 <?php
-
-require_once '..\controller\DaoImprimirParcela.php';
- 
-// indica o arquivo de classe a ser testado
+require_once 'controller\DaoImprimirParcela.php';
 class DaoImprimirParcelaTest extends PHPUnit_Framework_TestCase {
   protected $object;
   protected function setup() {

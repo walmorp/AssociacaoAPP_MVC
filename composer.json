@@ -1,13 +1,24 @@
 {
+   "authors": [
+        {
+            "name": "Walmor Pachco",
+            "email": "wbfsistemas@gmail.com",
+            "homepage": "https://wbfsistemas.com",
+            "role": "Programador"
+        }
+    ],
     "require" : {},
+    "autoload" : {
+        "psr-4" : {
+            "APP\\" : ["controller/", "model/", "view/"]
+        }
+    },
     "require-dev" : {
         "phpunit/phpunit" : "*"	
     },
     "autoload-dev" : {
         "psr-4" : {
-            "controller\\" : "Test/",
-            "model\\" : "/",
-            "view\\" : "/"
+            "Test\\" : ["controller/", "model/", "view/"]
         }
     }
 }

@@ -1,5 +1,4 @@
 <?php
-require_once ('D:\Sistemas\XAmpp\htdocs\AssociacaoAPP_MVC\controller\Conexao.php');
 class FuncaoSistema {
     
  public function opcaoSelecione() {
@@ -30,11 +29,6 @@ class FuncaoSistema {
        return true;
     }
     return false;
- }
-
- public function limpaNomeArq($Texto) {
-    $texto = ereg_replace("[^a-zA-Z0-9_/\.\-]", "", strtr($Texto, "áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ ", "aaaaeeiooouucAAAAEEIOOOUUC_"));
-    return $texto;
  }
 
  public function arrumaDataHora($Data) { // mm-dd-aaaa 00:00:00
@@ -172,6 +166,7 @@ public function converteDataHoraParaIB($Data) {
 
  public function mostraCampoID($id){
     print "<div class=\"campoID\" id=\"labelID\">&nbsp;$id</div><input name=\"id\" type=\"hidden\" id=\"id\" value=\"$id\" />";
+    return true;
  }
 
  public function retornaProximoID($obj) {
@@ -315,21 +310,14 @@ public function converteDataHoraParaIB($Data) {
                 }
                 Print "\t</tr>\n";
             }
-         
             Print "</Table>\n";
             Print "<h3>Número de registros na lista: $ContLinha</h3>\n";
             Print "</div>\n";
-         
-            //Include "Free_Result.php";
            }
        }
+       return true;
  }
-/*
- public function mostraAvisos($Tempo = 60) {
-  self::mostraAviso($Tempo, 180);
-  self::mostraAviso(180, 1800);
- }
-*/
+
  public function mostraAviso($Tempo = 1, $TempoFim = 1800) {
   
   $sql = "SELECT A.NOME||' - '||A.CPF AS ASSOCIADO, COUNT(CB.DATA_VENCIMENTO) AS QUANTIDADE
@@ -358,6 +346,7 @@ public function converteDataHoraParaIB($Data) {
      } else {
          Print $Aviso;
      }
+     return true;
  }
 
  public function popularAssociadoCadParcelas($obj) {
@@ -377,6 +366,7 @@ public function converteDataHoraParaIB($Data) {
        $nome = $row->TITULO;
        print "  <option value=\"$id\">$nome</option>\n";
    }
+   return true;
  }
 
  public function popularAssociado($obj, $valorSelec) {
@@ -392,6 +382,7 @@ public function converteDataHoraParaIB($Data) {
        }
        print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 
  public function popularTipoCobranca($obj, $valorSelec) {
@@ -407,6 +398,7 @@ public function converteDataHoraParaIB($Data) {
        }
        print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 
  public function popularSituacaoBaixa($obj, $valorSelec) {
@@ -422,6 +414,7 @@ public function converteDataHoraParaIB($Data) {
        }
        print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 
  public function popularTitulo($obj, $valorSelec) {
@@ -437,6 +430,7 @@ public function converteDataHoraParaIB($Data) {
        }
      print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 
  public function popularTipoTitulo($obj, $valorSelec) {
@@ -452,6 +446,7 @@ public function converteDataHoraParaIB($Data) {
        }
        print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 
  public function popularSituacaoTitulo($obj, $valorSelec) {
@@ -467,6 +462,7 @@ public function converteDataHoraParaIB($Data) {
        }
        print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 
  public function popularGenero($obj, $valorSelec) {
@@ -482,6 +478,7 @@ public function converteDataHoraParaIB($Data) {
        }
        print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 
  public function popularCidade($obj, $valorSelec) {
@@ -497,6 +494,7 @@ public function converteDataHoraParaIB($Data) {
        }
        print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 
  public function popularSituacaoAssociado($obj, $valorSelec) {
@@ -512,6 +510,7 @@ public function converteDataHoraParaIB($Data) {
        }
        print "  <option value=\"$id\"$selectd>$nome</option>\n";
    }
+   return true;
  }
 }
 ?>
