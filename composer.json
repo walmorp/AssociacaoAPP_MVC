@@ -1,0 +1,15 @@
+{
+    "name": "vendor/associacao-a-p-p-m-v-c",
+    "description": "Descrição do projeto AssociacaoAPP_MVC.",
+    "authors": [
+        {
+            "name": "wbfsistemas",
+            "email": "wbfsistemas@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit-skeleton-generator": "dev-master"
+    }
+}
