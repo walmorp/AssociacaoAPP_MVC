@@ -15,7 +15,7 @@ class TipoCobranca implements Tabela {
      return $this->id;
  }
 
- public function getNome() {
+ public function getDescricao() {
      return $this->descricao;
  }
 
@@ -27,11 +27,11 @@ class TipoCobranca implements Tabela {
      $this->id = $id;
  }
 
- public function setNome($descricao) {
-     $this->nome = $descricao;
+ public function setDescricao($descricao) {
+     $this->descricao = $descricao;
  }
 
- public function setSigla_uf($sigla) {
+ public function setSigla($sigla) {
      $this->sigla = $sigla;
  }
  
