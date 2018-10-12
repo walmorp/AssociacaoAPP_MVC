@@ -7,10 +7,10 @@
     <head>
         <?php require_once (__APP_.'view/DefineHeadMeta.php');?>
         <?php require_once (__APP_.'view/DefineEstilo.php');?>
-        <title>Baixar de parcela</title>
+        <title>Baixar parcela</title>
     </head>
     <body>
-<center><div><h1 class="tituloCadastro">Baixar de parcela</h1></div></center>
+<center><div><h1 class="tituloCadastro">Baixar parcela</h1></div></center>
 <?php
 
  if ($this::campoExiste("Gravar")) {

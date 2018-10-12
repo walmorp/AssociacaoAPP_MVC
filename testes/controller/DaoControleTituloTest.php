@@ -1,11 +1,11 @@
 <?php
   require_once ('defineVar.php');
   require_once ('TesteCase.php');
-  require_once (__APP_.'controller/DaoControleAssociado.php');
-class DaoControleAssociadoTest extends TesteCase {
+  require_once (__APP_.'controller/DaoControleTitulo.php');
+class DaoControleTituloTest extends TesteCase {
 
     /**
-     * @var DaoControleAssociado
+     * @var DaoControleTitulo
      */
     protected $object;
 
@@ -14,7 +14,7 @@ class DaoControleAssociadoTest extends TesteCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
-        $this->object = new DaoControleAssociado;
+        $this->object = new DaoControleTitulo;
     }
 
     /**
@@ -26,31 +26,31 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::getTabela
+     * @covers DaoControleTitulo::getTabela
      * @todo   Implement testGetTabela().
      */
     public function testGetTabela() {
-       $this->assertEquals('ASSOCIADO', $this->object->getTabela());
+       $this->assertEquals('TITULO', $this->object->getTabela());
     }
 
     /**
-     * @covers DaoControleAssociado::getClassModel
+     * @covers DaoControleTitulo::getClassModel
      * @todo   Implement testGetClassModel().
      */
     public function testGetClassModel() {
-       $this->assertEquals('Associado', $this->object->getClassModel());
+       $this->assertEquals('Titulo', $this->object->getClassModel());
     }
 
     /**
-     * @covers DaoControleAssociado::getClassView
+     * @covers DaoControleTitulo::getClassView
      * @todo   Implement testGetClassView().
      */
     public function testGetClassView() {
-       $this->assertEquals('ControleAssociado', $this->object->getClassView());
+       $this->assertEquals('ControleTitulo', $this->object->getClassView());
     }
 
     /**
-     * @covers DaoControleAssociado::executaView
+     * @covers DaoControleTitulo::executaView
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
@@ -60,7 +60,7 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::gravar
+     * @covers DaoControleTitulo::gravar
      * @todo   Implement testGravar().
      */
     public function testGravar() {
@@ -68,7 +68,7 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::existe
+     * @covers DaoControleTitulo::existe
      * @todo   Implement testExiste().
      */
     public function testExiste() {
@@ -76,27 +76,25 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::insere
+     * @covers DaoControleTitulo::insere
      * @todo   Implement testInsere().
      */
     public function testInsere() {
        $_GET['id']='';
-       $_GET['nascimento']='01/01/2001';
        $this->assertEquals(true, $this->object->insere());
     }
 
     /**
-     * @covers DaoControleAssociado::altera
+     * @covers DaoControleTitulo::altera
      * @todo   Implement testAltera().
      */
     public function testAltera() {
        $_GET['id']='1';
-       $_GET['nascimento']='01/01/2001';
        $this->assertEquals(true, $this->object->altera());
     }
 
     /**
-     * @covers DaoControleAssociado::apaga
+     * @covers DaoControleTitulo::apaga
      * @todo   Implement testApaga().
      */
     public function testApaga() {
@@ -104,7 +102,7 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::ler
+     * @covers DaoControleTitulo::ler
      * @todo   Implement testLer().
      */
     public function testLer() {
@@ -112,7 +110,7 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::lista
+     * @covers DaoControleTitulo::lista
      * @todo   Implement testLista().
      */
     public function testLista() {
@@ -120,4 +118,3 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
 }
-?>

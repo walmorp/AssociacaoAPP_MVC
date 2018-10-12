@@ -1,11 +1,11 @@
 <?php
   require_once ('defineVar.php');
   require_once ('TesteCase.php');
-  require_once (__APP_.'controller/DaoControleAssociado.php');
-class DaoControleAssociadoTest extends TesteCase {
+  require_once (__APP_.'controller/DaoControleCobranca.php');
+class DaoControleCobrancaTest extends TesteCase {
 
     /**
-     * @var DaoControleAssociado
+     * @var DaoControleCobranca
      */
     protected $object;
 
@@ -14,7 +14,7 @@ class DaoControleAssociadoTest extends TesteCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
-        $this->object = new DaoControleAssociado;
+        $this->object = new DaoControleCobranca;
     }
 
     /**
@@ -26,31 +26,31 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::getTabela
+     * @covers DaoControleCobranca::getTabela
      * @todo   Implement testGetTabela().
      */
     public function testGetTabela() {
-       $this->assertEquals('ASSOCIADO', $this->object->getTabela());
+       $this->assertEquals('COBRANCA', $this->object->getTabela());
     }
 
     /**
-     * @covers DaoControleAssociado::getClassModel
+     * @covers DaoControleCobranca::getClassModel
      * @todo   Implement testGetClassModel().
      */
     public function testGetClassModel() {
-       $this->assertEquals('Associado', $this->object->getClassModel());
+       $this->assertEquals('Cobranca', $this->object->getClassModel());
     }
 
     /**
-     * @covers DaoControleAssociado::getClassView
+     * @covers DaoControleCobranca::getClassView
      * @todo   Implement testGetClassView().
      */
     public function testGetClassView() {
-       $this->assertEquals('ControleAssociado', $this->object->getClassView());
+       $this->assertEquals('ControleCobranca', $this->object->getClassView());
     }
 
     /**
-     * @covers DaoControleAssociado::executaView
+     * @covers DaoControleCobranca::executaView
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
@@ -60,7 +60,7 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::gravar
+     * @covers DaoControleCobranca::gravar
      * @todo   Implement testGravar().
      */
     public function testGravar() {
@@ -68,7 +68,7 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::existe
+     * @covers DaoControleCobranca::existe
      * @todo   Implement testExiste().
      */
     public function testExiste() {
@@ -76,27 +76,25 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::insere
+     * @covers DaoControleCobranca::insere
      * @todo   Implement testInsere().
      */
     public function testInsere() {
        $_GET['id']='';
-       $_GET['nascimento']='01/01/2001';
        $this->assertEquals(true, $this->object->insere());
     }
 
     /**
-     * @covers DaoControleAssociado::altera
+     * @covers DaoControleCobranca::altera
      * @todo   Implement testAltera().
      */
     public function testAltera() {
        $_GET['id']='1';
-       $_GET['nascimento']='01/01/2001';
        $this->assertEquals(true, $this->object->altera());
     }
 
     /**
-     * @covers DaoControleAssociado::apaga
+     * @covers DaoControleCobranca::apaga
      * @todo   Implement testApaga().
      */
     public function testApaga() {
@@ -104,7 +102,7 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::ler
+     * @covers DaoControleCobranca::ler
      * @todo   Implement testLer().
      */
     public function testLer() {
@@ -112,7 +110,7 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::lista
+     * @covers DaoControleCobranca::lista
      * @todo   Implement testLista().
      */
     public function testLista() {
@@ -120,4 +118,3 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
 }
-?>

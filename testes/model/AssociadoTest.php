@@ -1,7 +1,6 @@
 <?php
   require_once ('defineVar.php');
   require_once ('TesteCase.php');
-  require_once (__APP_.'model/Cidade.php');
   require_once (__APP_.'model/Associado.php');
 class AssociadoTest extends TesteCase {
 
@@ -9,7 +8,6 @@ class AssociadoTest extends TesteCase {
      * @var Associado
      */
     protected $object;
-    protected $objCidade;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -23,9 +21,8 @@ class AssociadoTest extends TesteCase {
         $this->object->setEndereco("Rua Geral");
         $this->object->setNascimento("01/01/2001");
         $this->object->setCpf("111.111.111-11");
-        $this->object->setId_cidade("1");
-        $this->object->setId_situacao("1");
         $this->object->setCidade($this->getFKCidade());
+        $this->object->setId_situacao("1");
     }
 
     /**
@@ -93,11 +90,11 @@ class AssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers Associado::getId_cidade
-     * @todo   Implement testGetId_cidade().
+     * @covers Associado::getCidade
+     * @todo   Implement testGetCidade().
      */
-    public function testGetId_cidade() {
-        $this->assertEquals('1', $this->object->getId_cidade());
+    public function testGetCidade() {
+        $this->assertEquals($this->getFKCidade(), $this->object->getCidade());
     }
 
     /**
@@ -108,14 +105,6 @@ class AssociadoTest extends TesteCase {
         $this->assertEquals('1', $this->object->getId_situacao());
     }
 
-    /**
-     * @covers Associado::getCidade
-     * @todo   Implement testGetCidade().
-     */
-    public function testGetCidade() {
-        $this->assertEquals($this->getFKCidade(), $this->object->getCidade());
-    }
-    
     public function getFKCidade() {
         $objCidade = new Cidade();
 

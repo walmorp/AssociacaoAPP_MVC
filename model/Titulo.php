@@ -1,11 +1,12 @@
 ﻿<?php
 require_once ('defineVar.php');
 require_once (__APP_.'model/Tabela.php');
+require_once (__APP_.'model/Associado.php');
 class Titulo implements Tabela {
  const TABELA="TITULO";
  private $id;
  private $numero_titulo;
- private $id_associado;
+ private $Associado;
  private $data_socio;
  private $id_tipo_titulo;
  private $id_situacao_titulo;
@@ -22,8 +23,8 @@ class Titulo implements Tabela {
      return $this->numero_titulo;
  }
 
- public function getId_associado() {
-     return $this->id_associado;
+ public function getAssociado() {
+     return $this->Associado;
  }
 
  public function getData_socio() {
@@ -46,8 +47,8 @@ class Titulo implements Tabela {
      $this->numero_titulo = $numero_titulo;
  }
 
- public function setId_associado($id_associado) {
-     $this->id_associado = $id_associado;
+ public function setAssociado($Associado) {
+     $this->Associado = $Associado;
  }
 
  public function setData_socio($data_socio) {

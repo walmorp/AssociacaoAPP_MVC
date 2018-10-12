@@ -12,7 +12,7 @@ class DaoRelatorioGerencial extends Conexao implements Relatorio {
  
  public function executaView() {
    require_once (__APP_.'view/'.self::getClassView().'.php');
-   exit;
+   return true;
  }
 
  public function mostraRelatorio() {
@@ -27,6 +27,7 @@ class DaoRelatorioGerencial extends Conexao implements Relatorio {
          ORDER BY A.NOME, CB.DATA_VENCIMENTO, T.NUMERO_TITULO";
   $Opera = "B;I;";
   $this::mostraTabelaBDConectado($this, $sql, $Opera, $MostrarMetaDados);
+  return true;
  }
 }
 ?>

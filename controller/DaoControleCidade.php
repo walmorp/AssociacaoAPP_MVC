@@ -21,7 +21,7 @@ class DaoControleCidade extends Conexao implements Cadastro {
  
  public function executaView() {
   require_once (__APP_.'view/'.self::getClassView().'.php');
-  exit;
+  return true;
  }
   
  public function gravar() {
@@ -31,6 +31,7 @@ class DaoControleCidade extends Conexao implements Cadastro {
   } else {
      $res = $this::insere();
   }
+  return true;
  }
   
  public function existe($id) {
@@ -91,5 +92,6 @@ class DaoControleCidade extends Conexao implements Cadastro {
   $sql = "SELECT * FROM ".$this::getTabela()." $where ORDER BY 2;";
   $Opera = "A;D;C;";
   self::mostraTabelaBDConectado($this, $sql, $Opera, false);
+  return true;
  }
 }

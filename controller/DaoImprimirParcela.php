@@ -12,7 +12,7 @@ class DaoImprimirParcela extends Conexao implements Relatorio {
  
  public function executaView() {
    require_once (__APP_.'view/'.self::getClassView().'.php');
-   exit;
+   return true;
  }
 
  public function mostraRelatorio() {

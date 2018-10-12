@@ -1,12 +1,15 @@
 ﻿<?php
 require_once ('defineVar.php');
 require_once (__APP_.'model/Tabela.php');
+require_once (__APP_.'model/Titulo.php');
+require_once (__APP_.'model/Associado.php');
+require_once (__APP_.'model/TipoCobranca.php');
 class Cobranca implements Tabela {
  const TABELA="COBRANCA";
  private $id;
- private $id_titulo;
- private $id_associado;
- private $id_tipo_cobranca;
+ private $Titulo;
+ private $Associado;
+ private $TipoCobranca;
  private $id_situacao_baixa;
  private $data_registro_parcela;
  private $data_vencimento;
@@ -24,16 +27,16 @@ class Cobranca implements Tabela {
      return $this->id;
  }
 
- public function getId_titulo() {
-     return $this->id_titulo;
+ public function getTitulo() {
+     return $this->Titulo;
  }
 
- public function getId_associado() {
-     return $this->id_associado;
+ public function getAssociado() {
+     return $this->Associado;
  }
 
- public function getId_tipo_cobranca() {
-     return $this->id_tipo_cobranca;
+ public function getTipoCobranca() {
+     return $this->TipoCobranca;
  }
 
  public function getId_situacao_baixa() {
@@ -76,16 +79,16 @@ class Cobranca implements Tabela {
      $this->id = $id;
  }
 
- public function setId_titulo($id_titulo) {
-     $this->id_titulo = $id_titulo;
+ public function setTitulo($Titulo) {
+     $this->Titulo = $Titulo;
  }
 
- public function setId_associado($id_associado) {
-     $this->id_associado = $id_associado;
+ public function setAssociado($Associado) {
+     $this->Associado = $Associado;
  }
 
- public function setId_tipo_cobranca($id_tipo_cobranca) {
-     $this->id_tipo_cobranca = $id_tipo_cobranca;
+ public function setTipoCobranca($TipoCobranca) {
+     $this->TipoCobranca = $TipoCobranca;
  }
 
  public function setId_situacao_baixa($id_situacao_baixa) {

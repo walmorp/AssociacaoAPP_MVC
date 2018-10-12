@@ -21,7 +21,7 @@ class DaoControleTipoCobranca extends Conexao implements Cadastro {
  
  public function executaView() {
   require_once (__APP_.'view/'.self::getClassView().'.php');
-  exit;
+  return true;
  }
   
  public function gravar() {

@@ -13,7 +13,7 @@ class DaoHome extends Conexao implements View {
  
  public function executaView() {
    require_once (__APP_.'view/'.self::getClassView().'.php');
-   exit;
+   return true;
  }
 
  public function mostraParcelasEmAberto() {
@@ -31,6 +31,7 @@ class DaoHome extends Conexao implements View {
          ORDER BY A.NOME, CB.DATA_VENCIMENTO, T.NUMERO_TITULO";
   $Opera = "B;I;";
   $this::mostraTabelaBDConectado($this, $sql, $Opera, $MostrarMetaDados);
+  return true;
  }
 
  public function mostraAssociadosAtivos() {
@@ -45,6 +46,7 @@ class DaoHome extends Conexao implements View {
          ORDER BY 2";
   $Opera = "P;";
   $this::mostraTabelaBDConectado($this, $sql, $Opera, $MostrarMetaDados);
+  return true;
  }
 
  public function mostraTitulosAtivos() {
@@ -59,6 +61,7 @@ class DaoHome extends Conexao implements View {
          ORDER BY T.NUMERO_TITULO";
   $Opera = "P;";
   $this::mostraTabelaBDConectado($this, $sql, $Opera, $MostrarMetaDados);
+  return true;
 
  }
 }

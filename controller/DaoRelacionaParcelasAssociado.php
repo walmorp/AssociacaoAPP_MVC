@@ -12,7 +12,7 @@ class DaoRelacionaParcelasAssociado extends Conexao implements Relatorio {
  
  public function executaView() {
    require_once (__APP_.'view/'.self::getClassView().'.php');
-   exit;
+   return true;
  }
 
  public function mostraRelatorio() {
@@ -41,6 +41,7 @@ class DaoRelacionaParcelasAssociado extends Conexao implements Relatorio {
       $Opera = "B;I;";
   }
   $this::mostraTabelaBDConectado($this, $sql, $Opera, $MostrarMetaDados);
+  return true;
  }
 }
 ?> 

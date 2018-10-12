@@ -10,9 +10,8 @@ class Associado implements Tabela {
  private $endereco;
  private $nascimento;
  private $cpf;
- private $id_cidade;
- private $id_situacao;
  private $Cidade;
+ private $id_situacao;
  
  public static function getTabela() {
      return self::TABELA;
@@ -42,16 +41,12 @@ class Associado implements Tabela {
      return $this->cpf;
  }
 
- public function getId_cidade() {
-     return $this->id_cidade;
+ public function getCidade() {
+     return $this->Cidade;
  }
 
  public function getId_situacao() {
      return $this->id_situacao;
- }
-
- public function getCidade() {
-     return $this->Cidade;
  }
 
  public function setId($id) {
@@ -78,17 +73,12 @@ class Associado implements Tabela {
      $this->cpf = $cpf;
  }
 
- public function setId_cidade($id_cidade) {
-     $this->id_cidade = $id_cidade;
+ public function setCidade($Cidade) {
+     $this->Cidade = $Cidade;
  }
 
  public function setId_situacao($id_situacao) {
      $this->id_situacao = $id_situacao;
  }
-
- public function setCidade($Cidade) {
-     $this->Cidade = $Cidade;
- }
- 
 }
 ?>

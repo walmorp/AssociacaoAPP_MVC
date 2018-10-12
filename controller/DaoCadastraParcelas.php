@@ -12,7 +12,7 @@ class DaoCadastraParcelas extends Conexao implements View {
  
  public function executaView() {
    require_once (__APP_.'view/'.self::getClassView().'.php');
-   exit;
+   return true;
  }
 
  public function getTabela() {
@@ -48,6 +48,7 @@ class DaoCadastraParcelas extends Conexao implements View {
             ORDER BY 3 NULLs LAST, 8";
    $Opera = "";
    self::mostraTabelaBDConectado($this, $sql, $Opera, false);
+   return true;
  }
  
  public function gravar() {
@@ -101,7 +102,8 @@ function gravaVarios($idTituloInicio, $idTituloFinal, $idTitulo, $idTipoCobranca
   while ($row = ibase_fetch_object($r)) {
       $id = $row->ID;
       self::gravaCobranca($id, $idTipoCobranca, $dataVencimento, $valorNominal, $dataRegistroParcela);
-  }  
+  }
+  return true;
 }
 
 function gravaCobranca($idTitulo, $idTipoCobranca, $dataVencimento, $valorNominal, $dataRegistroParcela) {
@@ -117,6 +119,7 @@ function gravaCobranca($idTitulo, $idTipoCobranca, $dataVencimento, $valorNomina
 
      $r = $this::query($sql);
   }
+  return true;
  }
 }
 ?> 

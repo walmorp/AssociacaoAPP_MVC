@@ -12,7 +12,7 @@ class DaoLoginAPP extends Conexao implements View {
  
  public function executaView() {
    require_once (__APP_.'view/'.self::getClassView().'.php');
-   exit;
+   return true;
  }
  
  public function execLogin() {

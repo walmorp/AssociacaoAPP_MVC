@@ -54,10 +54,7 @@ class DaoControleTipoCobrancaTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $this->markTestIncomplete('Teste não definido.');
        //$this->assertContains('<html>', $this->object->executaView());
        //$this->assertContains('</html>', $this->object->executaView());
     }

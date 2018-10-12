@@ -36,6 +36,7 @@ class Conexao extends FuncaoSistema {
       Print("Erro no comando SQL - Close <br><br>".ibase_errmsg());  
       Exit;
    }
+   return true;
  }
 
  public function freeResult($r) {
@@ -43,6 +44,7 @@ class Conexao extends FuncaoSistema {
    If ( ibase_errmsg() <> "" ) {
        Print("Erro no comando SQL - Free_result <br><br>".ibase_errmsg());  
    }
+   return true;
  }
 
  public function query($sql) {
