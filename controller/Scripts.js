@@ -1,6 +1,12 @@
  
  Formulario = null;
+ 
+ OpcaoSelecione = "[Selecione...]";
 
+ function ConfirmaExclusao(pExec) {
+  return confirm('Confirma exclusão do registro?\n' + pExec);
+ }
+  
  function ValidaCampos() {
   MostraMensagem("Aguarde, enviando dados...");
   return true;
@@ -9,6 +15,9 @@
  function ValidaCamposTitulos() {
   if(document.cadastro.dataSocio.value=="") { alert("O Campo data  é obrigatório!"); return false; }
   if(document.cadastro.numeroTitulo.value=="") { alert("O Campo número é obrigatório!"); return false; }
+  if(document.cadastro.idAssociado.value==OpcaoSelecione) { alert("O Campo associado é obrigatório!"); return false; }
+  if(document.cadastro.idTipoTitulo.value==OpcaoSelecione) { alert("O Campo tipo do título é obrigatório!"); return false; }
+  if(document.cadastro.idSituacaoTitulo.value==OpcaoSelecione) { alert("O Campo situação do título é obrigatório!"); return false; }
   MostraMensagem("Aguarde, enviando dados...");
   return true;
  }
@@ -18,6 +27,9 @@
   if(document.cadastro.endereco.value=="") { alert("O Campo endereço é obrigatório!"); return false; }
   if(document.cadastro.nascimento.value=="") { alert("O Campo nascimento é obrigatório!"); return false; }
   if(document.cadastro.cpf.value=="") { alert("O Campo cpf é obrigatório!"); return false; }
+  if(document.cadastro.genero.value==OpcaoSelecione) { alert("O Campo gênero é obrigatório!"); return false; }
+  if(document.cadastro.cidade.value==OpcaoSelecione) { alert("O Campo cidade é obrigatório!"); return false; }
+  if(document.cadastro.situacao.value==OpcaoSelecione) { alert("O Campo situação do associado é obrigatório!"); return false; }
   MostraMensagem("Aguarde, enviando dados...");
   return true;
  }
@@ -60,8 +72,6 @@
  }
 
  function Trim(str) {return str.replace(/^\s+|\s+$/g,"");}
- 
- function OpcaoSelecione() {return "[Selecione...]";}
  
  function AbrePagina(Pagina) {
   window.location.assign(Pagina);//http://127.0.0.1/AssociacaoAPP/AssociacaoAPP.php
