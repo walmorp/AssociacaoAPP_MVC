@@ -4,7 +4,7 @@
      <input class="botaoLimpar"    type="button" id="limpar"    name="limpar"    value="Limpar"        onclick="JavaScript:LimparForm(document.cadastro);">
      <input class="botaoNovo"      type="button" id="novo"      name="novo"      value="Novo cadastro" onclick="JavaScript:NovoCadastro(document.cadastro, 'gravar');">
 <?php 
- if ($this::getCampo("Opera") != "C") {
+ if ($this::getCampo("opera") != "C") {
      Print "<Script LANGUAGE='javascript'>setDisabed('gravar', false);</Script>";
  } else { 
      Print "<Script LANGUAGE='javascript'>setDisabed('gravar', true);</Script>";

@@ -4,16 +4,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/view/BotoesCadastro.php</file>
             <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/controller/Scripts.js</file>
-            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/view/CadastraParcelas.php</file>
+            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/controller/DaoControleTipoCobranca.php</file>
             <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/index.php</file>
             <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/controller/FuncaoSistema.php</file>
+            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/view/ControleTipoCobranca.php</file>
             <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/controller/ControleCadastro.php</file>
-            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/view/AssociacaoAPP.php</file>
-            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/view/ControleCobranca.php</file>
-            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/controller/DaoControleAssociado.php</file>
-            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/view/ControleAssociado.php</file>
         </group>
     </open-files>
 </project-private>

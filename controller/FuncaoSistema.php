@@ -15,18 +15,18 @@ class FuncaoSistema {
  }
 
  public function getCampoFalse($Campo) {
-    if (isSet($_GET[$Campo])) {   
-       return $_GET[$Campo];
-    } else if (isSet($_POST[$Campo])) {   
+    if (isSet($_POST[$Campo])) {   
        return $_POST[$Campo];
+    } else if (isSet($_GET[$Campo])) {   
+       return $_GET[$Campo];
     }
     return false;
  }
 
  public function campoExiste($Campo) {
-    if (isSet($_GET[$Campo])) {   
+    if (isSet($_POST[$Campo])) {   
        return true;
-    } else if (isSet($_POST[$Campo])) {   
+    } else if (isSet($_GET[$Campo])) {   
        return true;
     }
     return false;
@@ -166,7 +166,7 @@ public function converteDataHoraParaIB($Data) {
  }
 
  public function mostraCampoID($id){
-    return "<div class=\"campoID\" name=\"labelID\" id=\"labelID\">&nbsp;$id</div><input name=\"id\" type=\"hidden\" id=\"id\" value=\"$id\" />";
+    return "<div class='campoID' name='labelID' id='labelID'>&nbsp;$id</div><input class='campo' name='id' type='hidden' id='id' value='$id' />";
     //return true;
  }
 

@@ -105,7 +105,7 @@
  }
  
  function MostraMensagem(Mensagem) {
-  if (Mensagem=="") {
+  if (Mensagem==="") {
     Mensagem="Por favor, aguarde...";
   }
   PosHeight = ( ( (document.body.clientHeight - 80 ) / 2 ) * -1 );  
@@ -120,8 +120,8 @@
  } 
   
  function MostraTamanho() {
-     document.getElementById("Resulucao").innerHTML = "Resolução atual: <b>"+screen.width+"X"+screen.height +"</b>"+ 
-	                                                  " - O tamanho da janela está em <b>"+document.body.clientWidth+"X"+document.body.clientHeight+"</b>";
+     document.getElementById("Resulucao").innerHTML = "Resolução atual: <b>"+screen.width+"X"+screen.height +"</b> - "+ 
+	                                              "O tamanho da janela está em <b>"+document.body.clientWidth+"X"+document.body.clientHeight+"</b>";
      setTamanhoCentro();
  }
  
@@ -172,6 +172,10 @@ function imprimirDiv(nomeDiv, botao){
    switch(tipoCampo) {
 
     case "text":
+      elements[i].value = "";
+      ResetaClasse(elements[i]);
+      break;
+
     case "password":
     case "textarea":
     case "hidden":

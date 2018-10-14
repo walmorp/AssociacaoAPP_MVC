@@ -58,6 +58,7 @@
 <?php
   $ArqJS       = __APP_.'controller/MostraAvisos1.js';
   $VersaoArqJS = date("dmYGis", filemtime($ArqJS) );
+  $ArqJS       = __HOST_APP_.'controller/MostraAvisos1.js';
 ?>
   <script>
    var worker1 = new Worker('<?php print "$ArqJS?$VersaoArqJS"; ?>');
@@ -67,6 +68,7 @@
 <?php
   $ArqJS       = __APP_.'controller/MostraAvisos2.js';
   $VersaoArqJS = date("dmYGis", filemtime($ArqJS) );
+  $ArqJS       = __HOST_APP_.'controller/MostraAvisos2.js';
 ?>
    var worker2 = new Worker('<?php print "$ArqJS?$VersaoArqJS"; ?>');
    worker2.onmessage = function (event) {
