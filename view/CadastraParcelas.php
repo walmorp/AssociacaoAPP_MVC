@@ -23,10 +23,10 @@
         <td class="tituloCadastro" colspan="4">Títulos</td>
     </tr>
     <tr>
-      <td class="labelCadastro">Id inicial:</td>
+      <td class="labelCadastro">Código inicial:</td>
       <td class="campoCadastro"><input class="campo" name="idTituloInicio" type="text" onblur="ValidaCampo(this);" id="idTituloInicio" size="10" maxlength="10" value="1" />
         <span class="campoObrigatorio">*</span></td>
-      <td class="labelCadastro">Id final:</td>
+      <td class="labelCadastro">Código final:</td>
       <td class="campoCadastro"><input class="campo" name="idTituloFinal" type="text" onblur="ValidaCampo(this);" id="idTituloFinal" size="10" maxlength="10" value="999999" />
         <span class="campoObrigatorio">*</span></td>
     <tr>

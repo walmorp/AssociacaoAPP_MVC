@@ -4,7 +4,14 @@
  OpcaoSelecione = "[Selecione...]";
 
  function ConfirmaExclusao(pExec) {
-  return confirm('Confirma exclusão do registro?\n' + pExec);
+  return confirm("Confirma exclusão do registro?\n" + pExec);
+ }
+
+ function ConfirmaGavacao(pExec) {
+  Mensagem = "Confirma gravação do registro?";
+  if(document.cadastro.id.value=="") { alert("O Campo código é obrigatório!"); return false; }
+  if(document.cadastro.id.value=="0") { Mensagem = "Confirma inclusão de novo registro?"; }
+  return confirm(Mensagem + "\n" + pExec);
  }
   
  function ValidaCampos() {
@@ -13,11 +20,12 @@
  }
 
  function ValidaCamposTitulos() {
-  if(document.cadastro.dataSocio.value=="") { alert("O Campo data  é obrigatório!"); return false; }
+  if(document.cadastro.dataSocio.value=="") { alert("O Campo data é obrigatório!"); return false; }
   if(document.cadastro.numeroTitulo.value=="") { alert("O Campo número é obrigatório!"); return false; }
   if(document.cadastro.idAssociado.value==OpcaoSelecione) { alert("O Campo associado é obrigatório!"); return false; }
   if(document.cadastro.idTipoTitulo.value==OpcaoSelecione) { alert("O Campo tipo do título é obrigatório!"); return false; }
   if(document.cadastro.idSituacaoTitulo.value==OpcaoSelecione) { alert("O Campo situação do título é obrigatório!"); return false; }
+  if(!ConfirmaGavacao("")) {return false; }
   MostraMensagem("Aguarde, enviando dados...");
   return true;
  }
@@ -30,6 +38,7 @@
   if(document.cadastro.genero.value==OpcaoSelecione) { alert("O Campo gênero é obrigatório!"); return false; }
   if(document.cadastro.cidade.value==OpcaoSelecione) { alert("O Campo cidade é obrigatório!"); return false; }
   if(document.cadastro.situacao.value==OpcaoSelecione) { alert("O Campo situação do associado é obrigatório!"); return false; }
+  if(!ConfirmaGavacao("")) {return false; }
   MostraMensagem("Aguarde, enviando dados...");
   return true;
  }
@@ -37,13 +46,7 @@
  function ValidaCamposParcelas() {
   if(document.cadastro.dataVencimento.value=="") { alert("O Campo data vencimento é obrigatório!"); return false; }
   if(document.cadastro.valorNominal.value=="") { alert("O Campo valor nominal é obrigatório!"); return false; }
-  MostraMensagem("Aguarde, enviando dados...");
-  return true;
- }
- 
- function ValidaCamposCadastraParcelas() {
-  if(document.cadastro.dataVencimento.value=="") { alert("O Campo data vencimento é obrigatório!"); return false; }
-  if(document.cadastro.valorNominal.value=="") { alert("O Campo valor nominal é obrigatório!"); return false; }
+  if(!ConfirmaGavacao("")) {return false; }
   MostraMensagem("Aguarde, enviando dados...");
   return true;
  }
@@ -51,6 +54,7 @@
  function ValidaCamposTipoCobranca() {
   if(document.cadastro.descricao.value=="") { alert("O Campo descrição é obrigatório!"); return false; }
   if(document.cadastro.sigla.value=="") { alert("O Campo sigla é obrigatório!"); return false; }
+  if(!ConfirmaGavacao("")) {return false; }
   MostraMensagem("Aguarde, enviando dados...");
   return true;
  }
@@ -58,6 +62,22 @@
  function ValidaCamposCidade() {
   if(document.cadastro.nome.value=="") { alert("O Campo nome é obrigatório!"); return false; }
   if(document.cadastro.siglaUF.value=="") { alert("O Campo uf é obrigatório!"); return false; }
+  if(!ConfirmaGavacao("")) {return false; }
+  MostraMensagem("Aguarde, enviando dados...");
+  return true;
+ }
+ 
+ function ValidaCamposCadastraParcelas() {
+  if(document.cadastro.idTituloInicio.value=="") { alert('O Campo código inicial é obrigatório!'); return false; }
+  if(document.cadastro.idTituloFinal.value=="") { alert('O Campo código inicial é obrigatório!'); return false; }
+
+  if(document.cadastro.idTitulo.value==OpcaoSelecione) { alert("O Campo selecione o título é obrigatório!"); return false; }
+  if(document.cadastro.idTipoCobranca.value==OpcaoSelecione) { alert("O Campo tipo de título é obrigatório!"); return false; }
+
+  if(document.cadastro.dataVencimento.value=="") { alert("O Campo data vencimento é obrigatório!"); return false; }
+  if(document.cadastro.valorNominal.value=="") { alert("O Campo valor nominal é obrigatório!"); return false; }
+
+  if (!confirm('Confirma criação de novas parcelas, conforme parametros informados?')) {return false; }
   MostraMensagem("Aguarde, enviando dados...");
   return true;
  }
@@ -67,6 +87,8 @@
   //if(document.cadastro.valorAcrescimo.value=="") { alert("O Campo valor do acréscimo é obrigatório!"); return false; }
   //if(document.cadastro.valorAbatimento.value=="") { alert("O Campo valor do abatimento é obrigatório!"); return false; }
   if(document.cadastro.valorBaixado.value=="") { alert("O Campo valor baixado é obrigatório!"); return false; }
+  
+  if (!confirm('Confirma baixa da parcela?')) {return false; }
   MostraMensagem("Aguarde, enviando dados...");
   return true;
  }
@@ -83,17 +105,17 @@
  }
  
  function MostraMensagem(Mensagem) {
-  if (Mensagem==="") {
+  if (Mensagem=="") {
     Mensagem="Por favor, aguarde...";
   }
   PosHeight = ( ( (document.body.clientHeight - 80 ) / 2 ) * -1 );  
-  document.getElementById("TextoMensagem").innerHTML=Mensagem;
+  document.getElementById("TextoMensagem").innerHTML = Mensagem;
   document.getElementById("Mensagem").style.top = PosHeight + "px";
   document.getElementById("Mensagem").style.display = "block";
  } 
  
  function OcultaMensagem() {
-  document.getElementById("TextoMensagem").innerHTML="Por favor, aguarde...";
+  document.getElementById("TextoMensagem").innerHTML = "Por favor, aguarde...";
   document.getElementById("Mensagem").style.display = "none";
  } 
   

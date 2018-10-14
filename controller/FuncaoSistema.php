@@ -166,7 +166,7 @@ public function converteDataHoraParaIB($Data) {
  }
 
  public function mostraCampoID($id){
-    return "<div class=\"campoID\" id=\"labelID\">&nbsp;$id</div><input name=\"id\" type=\"hidden\" id=\"id\" value=\"$id\" />";
+    return "<div class=\"campoID\" name=\"labelID\" id=\"labelID\">&nbsp;$id</div><input name=\"id\" type=\"hidden\" id=\"id\" value=\"$id\" />";
     //return true;
  }
 
@@ -303,7 +303,7 @@ public function converteDataHoraParaIB($Data) {
                     $linksOpera = "";
                     if ($Alterar)   { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=A&id=$id\">[Alterar] </a>"; } 
                     if ($Consultar) { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=C&id=$id\">[Consultar] </a>"; }
-                    if ($Deletar)   { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=D&id=$id\" onClick=\"return ConfirmaExclusao('');\" >[Deletar&nbsp;registro] </a>"; } 
+                    if ($Deletar)   { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=D&id=$id\" onClick=\"return ConfirmaExclusao('');\">[Deletar&nbsp;registro] </a>"; } 
                     if ($Baixar)    { $linksOpera .= "<a class=\"noPrint\" href=\"?class=BaixarParcela&".$opSituacao."id=$id\">[Baixar&nbsp;parcela] </a>"; }
                     if ($Imprimir)  { $linksOpera .= "<a class=\"noPrint\" href=\"?class=ImprimirParcela&".$opSituacao."id=$id\">[Imprimir&nbsp;parcela] </a>"; }
                     if ($RPAssoc)   { $linksOpera .= "<a class=\"noPrint\" href=\"?class=RelacionaParcelasAssociado&".$opSituacao."opera=$OperaRParc&id=$id&associado=$associado\">[Relaciona&nbsp;parcelas] </a>"; }

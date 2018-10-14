@@ -45,7 +45,7 @@
     <tr>
       <td class="labelCadastro">Data do baixa/Pagamento:</td>
       <td class="campoCadastro"><input class="campo" name="dataBaixa" type="text" onblur="FormataData(this);" id="dataBaixa" size="10" maxlength="10" value="<?php print $this::arrumaData($Dados['DATA_BAIXA']);?>" />
-        <span class="campoObrigatorio">*</span></td>
+        <span class="campoObrigatorio"> </span></td>
       <td class="labelCadastro">Data do registro da baixa:</td>
       <td class="campoCadastro"><input class="campo" name="dataRegistroBaixa" type="text" disabled onblur="FormataData(this);" id="dataRegistroBaixa" size="20" maxlength="20" value="<?php print $this::arrumaDataHora($Dados['DATA_REGISTRO_BAIXA']);?>" />
         </td>
@@ -56,15 +56,15 @@
         <span class="campoObrigatorio">*</span></td>
       <td class="labelCadastro">Valor do acréscimo:</td>
       <td class="campoCadastro"><input class="campo" name="valorAcrescimo" type="text" onblur="FormataDecimal(this);" id="valorAcrescimo" size="14" maxlength="14" value="<?php print $this::formataValorDecimal($Dados['VALOR_ACRESCIMO']);?>" />
-        <span class="campoObrigatorio">*</span></td>
+        <span class="campoObrigatorio"> </span></td>
     </tr>
     <tr>
       <td class="labelCadastro">Valor do abatimento:</td>
       <td class="campoCadastro"><input class="campo" name="valorAbatimento" type="text" onblur="FormataDecimal(this);" id="valorAbatimento" size="14" maxlength="14" value="<?php print $this::formataValorDecimal($Dados['VALOR_ABATIMENTOS']);?>" />
-        <span class="campoObrigatorio">*</span></td>
+        <span class="campoObrigatorio"> </span></td>
       <td class="labelCadastro">Valor baixado/Pago:</td>
       <td class="campoCadastro"><input class="campo" name="valorBaixado" type="text" onblur="FormataDecimal(this);" id="valorBaixado" size="14" maxlength="14" value="<?php print $this::formataValorDecimal($Dados['VALOR_BAIXADO']);?>" />
-        <span class="campoObrigatorio">*</span></td>
+        <span class="campoObrigatorio"> </span></td>
     </tr>
     <tr><td colspan="4">
      <?php require_once (__APP_.'view/BotoesCadastro.php');?>
