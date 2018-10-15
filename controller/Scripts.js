@@ -43,6 +43,19 @@
   return true;
  }
 
+ function ValidaCamposCobranca() {
+  if(document.cadastro.idTitulo.value==OpcaoSelecione) { alert("O Campo número do título é obrigatório!"); return false; }
+//  if(document.cadastro.idAssociado.value==OpcaoSelecione) { alert("O Campo nome do associado é obrigatório!"); return false; }
+  if(document.cadastro.idTipoCobranca.value==OpcaoSelecione) { alert("O Campo tipo de cobrança é obrigatório!"); return false; }
+
+  if(document.cadastro.dataVencimento.value=="") { alert("O Campo data vencimento é obrigatório!"); return false; }
+  if(document.cadastro.valorNominal.value=="") { alert("O Campo valor nominal é obrigatório!"); return false; }
+
+  if(!ConfirmaGavacao("")) {return false; }
+  MostraMensagem("Aguarde, enviando dados...");
+  return true;
+ }
+
  function ValidaCamposParcelas() {
   if(document.cadastro.dataVencimento.value=="") { alert("O Campo data vencimento é obrigatório!"); return false; }
   if(document.cadastro.valorNominal.value=="") { alert("O Campo valor nominal é obrigatório!"); return false; }
@@ -84,8 +97,8 @@
  
  function ValidaCamposBaixaParcela() {
   if(document.cadastro.dataBaixa.value=="") { alert("O Campo data baixa é obrigatório!"); return false; }
-  //if(document.cadastro.valorAcrescimo.value=="") { alert("O Campo valor do acréscimo é obrigatório!"); return false; }
-  //if(document.cadastro.valorAbatimento.value=="") { alert("O Campo valor do abatimento é obrigatório!"); return false; }
+  if(document.cadastro.valorAcrescimo.value=="") { alert("O Campo valor do acréscimo é obrigatório!"); return false; }
+  if(document.cadastro.valorAbatimento.value=="") { alert("O Campo valor do abatimento é obrigatório!"); return false; }
   if(document.cadastro.valorBaixado.value=="") { alert("O Campo valor baixado é obrigatório!"); return false; }
   
   if (!confirm('Confirma baixa da parcela?')) {return false; }
@@ -96,7 +109,7 @@
  function Trim(str) {return str.replace(/^\s+|\s+$/g,"");}
  
  function AbrePagina(Pagina) {
-  window.location.assign(Pagina);//http://127.0.0.1/AssociacaoAPP/AssociacaoAPP.php
+  window.location.assign(Pagina);
 //  document.parentNode.getElementById("centro").src = Pagina;
  }
  
@@ -105,7 +118,7 @@
  }
  
  function MostraMensagem(Mensagem) {
-  if (Mensagem==="") {
+  if ((Mensagem===null) || (Mensagem==="")) {
     Mensagem="Por favor, aguarde...";
   }
   PosHeight = ( ( (document.body.clientHeight - 80 ) / 2 ) * -1 );  
@@ -160,8 +173,8 @@ function imprimirDiv(nomeDiv, botao){
    botao.style.visibility = vVisibility;
 }
  function LimparForm(Formulario) {
-
-  document.getElementById("labelID").innerHTML = "&nbsp;";
+  elemento = document.getElementById("labelID");
+  if (elemento!==null) { document.getElementById("labelID").innerHTML = "&nbsp;"; }
 
   var elements = Formulario.elements;
 
@@ -206,14 +219,18 @@ function imprimirDiv(nomeDiv, botao){
  function ResetCadastro(Formulario) {
     LimparForm(Formulario);
     Formulario.reset();
-    document.getElementById("labelID").innerHTML = document.getElementById("id").value;
+    elemento = document.getElementById("labelID");
+    if (elemento!==null) { document.getElementById("labelID").innerHTML = document.getElementById("id").value; }
+    
  }
 
  function NovoCadastro(Formulario, botaoGravar) {
     LimparForm(Formulario);
     setDisabed(botaoGravar, false);
-    document.getElementById("id").value = "0";
-    document.getElementById("labelID").innerHTML = "0";
+    elemento = document.getElementById("labelID");
+    if (elemento!==null) { document.getElementById("labelID").value = "0"; }
+    elemento = document.getElementById("id");
+    if (elemento!==null) { document.getElementById("id").innerHTML = "0"; }
  }
  
  function setDisabed(botao, pDisabled) {

@@ -34,7 +34,16 @@ class DaoRelacionaParcelasAssociado extends Conexao implements Relatorio {
                             LEFT JOIN TIPO_COBRANCA TC ON CB.ID_TIPO_COBRANCA = TC.ID 
                             LEFT JOIN SITUACAO_BAIXA S ON CB.ID_SITUACAO_BAIXA = S.ID
          WHERE A.ID = $id
-         ORDER BY CB.DATA_VENCIMENTO, T.NUMERO_TITULO";
+         UNION                                         
+         SELECT NULL AS PARCELA, 'Quantidade: ' || COUNT(*) AS DESCRICAO, NULL AS DATA_VENCIMENTO, SUM(CB.VALOR_NOMINAL) AS VALOR_NOMINAL, SUM(CB.VALOR_BAIXADO) AS VALOR_BAIXADO, NULL AS SITUACAO,
+                 NULL AS NUMERO_TITULO, NULL AS TIPO
+          FROM COBRANCA CB  LEFT JOIN TITULO T ON CB.ID_TITULO = T.ID
+                            LEFT JOIN TIPO_TITULO TT ON T.ID_TIPO_TITULO = TT.ID
+                            LEFT JOIN ASSOCIADO A ON CB.ID_ASSOCIADO = A.ID
+                            LEFT JOIN TIPO_COBRANCA TC ON CB.ID_TIPO_COBRANCA = TC.ID 
+                            LEFT JOIN SITUACAO_BAIXA S ON CB.ID_SITUACAO_BAIXA = S.ID
+         WHERE A.ID = $id
+         ORDER BY 3 NULLS LAST, 7";
   if ($this::campoExiste("OperaRParc")) {
       $Opera = "I;";
   } else {

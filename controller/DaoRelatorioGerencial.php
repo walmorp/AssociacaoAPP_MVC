@@ -24,7 +24,15 @@ class DaoRelatorioGerencial extends Conexao implements Relatorio {
                             LEFT JOIN SITUACAO_TITULO St ON T.ID_SITUACAO_TITULO = ST.ID 
                             LEFT JOIN ASSOCIADO A ON CB.ID_ASSOCIADO = A.ID
                             LEFT JOIN SITUACAO_BAIXA S ON CB.ID_SITUACAO_BAIXA = S.ID
-         ORDER BY A.NOME, CB.DATA_VENCIMENTO, T.NUMERO_TITULO";
+         UNION
+          SELECT NULL AS PARCELA, 'Quantidade: ' || COUNT(*) AS DATA_VENCIMENTO, SUM(CB.VALOR_NOMINAL) AS VALOR_NOMINAL, SUM(CB.VALOR_BAIXADO) AS VALOR_BAIXADO, NULL AS SITUACAO,
+                 NULL AS ASSOCIADO, NULL AS NUMERO_TITULO, NULL AS TIPO, NULL AS SITUACAO_TITULO
+          FROM COBRANCA CB  LEFT JOIN TITULO T ON CB.ID_TITULO = T.ID
+                            LEFT JOIN TIPO_TITULO TT ON T.ID_TIPO_TITULO = TT.ID
+                            LEFT JOIN SITUACAO_TITULO St ON T.ID_SITUACAO_TITULO = ST.ID 
+                            LEFT JOIN ASSOCIADO A ON CB.ID_ASSOCIADO = A.ID
+                            LEFT JOIN SITUACAO_BAIXA S ON CB.ID_SITUACAO_BAIXA = S.ID
+         ORDER BY 5 NULLS LAST, 2, 6";
   $Opera = "B;I;";
   $this::mostraTabelaBDConectado($this, $sql, $Opera, $MostrarMetaDados);
   return true;

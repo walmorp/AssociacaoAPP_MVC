@@ -45,7 +45,7 @@ class DaoCadastraParcelas extends Conexao implements View {
                                LEFT JOIN TIPO_COBRANCA TC ON CB.ID_TIPO_COBRANCA = TC.ID 
                                LEFT JOIN SITUACAO_BAIXA S ON CB.ID_SITUACAO_BAIXA = S.ID 
             $WhereDataRegistro 
-            ORDER BY 3 NULLs LAST, 8";
+            ORDER BY 3 NULLS LAST, 8";
    $Opera = "";
    self::mostraTabelaBDConectado($this, $sql, $Opera, false);
    return true;

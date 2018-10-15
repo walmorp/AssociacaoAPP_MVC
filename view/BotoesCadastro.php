@@ -9,4 +9,5 @@
  } else { 
      Print "<Script LANGUAGE='javascript'>setDisabed('gravar', true);</Script>";
  }
+ include (__APP_.'view/MensagemGravando.php');
 ?>

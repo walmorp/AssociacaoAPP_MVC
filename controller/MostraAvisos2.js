@@ -17,7 +17,7 @@ xhttp2.onreadystatechange = function() {
 };
 
 function Verifica2() {
-   xhttp2.open("GET", "http://127.0.0.1/AssociacaoAPP_MVC/Avisos2.php", true);
+   xhttp2.open("GET", "http://localhost/AssociacaoAPP_MVC/Avisos2.php", true);
    xhttp2.send();
    setTimeout(Verifica2, 20200);
    return;

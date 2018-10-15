@@ -301,12 +301,16 @@ public function converteDataHoraParaIB($Data) {
                 }
                 if ($MostraOpera) {
                     $linksOpera = "";
-                    if ($Alterar)   { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=A&id=$id\">[Alterar] </a>"; } 
-                    if ($Consultar) { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=C&id=$id\">[Consultar] </a>"; }
-                    if ($Deletar)   { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=D&id=$id\" onClick=\"return ConfirmaExclusao('');\">[Deletar&nbsp;registro] </a>"; } 
-                    if ($Baixar)    { $linksOpera .= "<a class=\"noPrint\" href=\"?class=BaixarParcela&".$opSituacao."id=$id\">[Baixar&nbsp;parcela] </a>"; }
-                    if ($Imprimir)  { $linksOpera .= "<a class=\"noPrint\" href=\"?class=ImprimirParcela&".$opSituacao."id=$id\">[Imprimir&nbsp;parcela] </a>"; }
-                    if ($RPAssoc)   { $linksOpera .= "<a class=\"noPrint\" href=\"?class=RelacionaParcelasAssociado&".$opSituacao."opera=$OperaRParc&id=$id&associado=$associado\">[Relaciona&nbsp;parcelas] </a>"; }
+                    if ($id=="") {
+                       $linksOpera = "&nbsp;";
+                    } else {
+                       if ($Alterar)   { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=A&id=$id\">[Alterar] </a>"; } 
+                       if ($Consultar) { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=C&id=$id\">[Consultar] </a>"; }
+                       if ($Deletar)   { $linksOpera .= "<a class=\"noPrint\" href=\"?$class".$opSituacao."opera=D&id=$id\" onClick=\"return ConfirmaExclusao('');\">[Deletar&nbsp;registro] </a>"; } 
+                       if ($Baixar)    { $linksOpera .= "<a class=\"noPrint\" href=\"?class=BaixarParcela&".$opSituacao."id=$id\">[Baixar&nbsp;parcela] </a>"; }
+                       if ($Imprimir)  { $linksOpera .= "<a class=\"noPrint\" href=\"?class=ImprimirParcela&".$opSituacao."id=$id\">[Imprimir&nbsp;parcela] </a>"; }
+                       if ($RPAssoc)   { $linksOpera .= "<a class=\"noPrint\" href=\"?class=RelacionaParcelasAssociado&".$opSituacao."opera=$OperaRParc&id=$id&associado=$associado\">[Relaciona&nbsp;parcelas] </a>"; }
+                    }
                     Print "<th class=\"$tabelatd\" border=\"1\">$linksOpera</th>\n";
                 }
                 Print "\t</tr>\n";

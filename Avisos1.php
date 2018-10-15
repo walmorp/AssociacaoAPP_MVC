@@ -1,4 +1,5 @@
 ﻿<?php
+  require_once ('defineVar.php');
   session_start();
   if (!isSet($_SESSION['id'])) {
      $_SESSION['id']="0";

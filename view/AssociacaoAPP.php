@@ -17,7 +17,7 @@
         
         <table id='idJanela' width='1200' height='700' valign='center' align='center' border='1'>
           <tr class='bordaTopo' height='50px'>
-              <td colspan="2"><center><div><h1 class='tituloAplicativo'>Associação Recreativa</h1></div></center></td>
+              <td colspan="2"><center><h1 class='tituloAplicativo'>Associação Recreativa</h1></center></td>
           </tr>
           <tr class='bordaMenu'>
               <td width="180px" valign='center' align='center'>

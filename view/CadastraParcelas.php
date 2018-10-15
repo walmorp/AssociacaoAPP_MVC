@@ -35,7 +35,7 @@
     <tr>
       <td class="labelCadastro">Selecione os títulos:</td>
       <td class="campoCadastro" colspan="3"><select class="campo" name="idTitulo" id="idTitulo" onblur="ValidaCampo(this);"><?php $this::popularAssociadoCadParcelas($this);?></select>
-        </td>
+        <span class="campoObrigatorio">*</span></td>
     </tr>
     <tr>
         <td class="tituloCadastro" colspan="4">Parcela</td>
@@ -58,17 +58,19 @@
      <input class="botaoGravar"    type="Submit" id="gravar"    name="gravar"    value="Gravar">
      <input class="botaoReiniciar" type="button" id="reiniciar" name="reiniciar" value="Reiniciar"     onclick="JavaScript:ResetCadastro(document.cadastro);">
      <input class="botaoLimpar"    type="button" id="limpar"    name="limpar"    value="Limpar"        onclick="JavaScript:LimparForm(document.cadastro);">
-     <input class="botaoNovo"      type="button" id="novo"      name="novo"      value="Novo cadastro" onclick="JavaScript:NovoCadastro(document.cadastro, 'gravar');">
+<!-- <input class="botaoNovo"      type="button" id="novo"      name="novo"      value="Novo cadastro" onclick="JavaScript:NovoCadastro(document.cadastro, 'gravar');"> -->
     </td></tr>
   </table>
 </form>
 <?php 
-if ($this::getCampo("Opera") != "C") {
+if ($this::getCampo("opera") != "C") {
     Print "<Script LANGUAGE='javascript'>setDisabed('gravar', false);</Script>";
 } else { 
     Print "<Script LANGUAGE='javascript'>setDisabed('gravar', true);</Script>";
 }
 $this::getParcelaProcessadas();
+ include (__APP_.'view/MensagemGravando.php');
+
 ?>
 </body>
 </html>
