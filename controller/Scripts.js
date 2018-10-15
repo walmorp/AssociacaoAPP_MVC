@@ -174,7 +174,9 @@ function imprimirDiv(nomeDiv, botao){
 }
  function LimparForm(Formulario) {
   elemento = document.getElementById("labelID");
-  if (elemento!==null) { document.getElementById("labelID").innerHTML = "&nbsp;"; }
+  if (elemento!=null) { 
+     document.getElementById("labelID").innerHTML = "&nbsp;"; 
+  }
 
   var elements = Formulario.elements;
 
@@ -185,10 +187,6 @@ function imprimirDiv(nomeDiv, botao){
    switch(tipoCampo) {
 
     case "text":
-      elements[i].value = "";
-      ResetaClasse(elements[i]);
-      break;
-
     case "password":
     case "textarea":
     case "hidden":
@@ -220,17 +218,17 @@ function imprimirDiv(nomeDiv, botao){
     LimparForm(Formulario);
     Formulario.reset();
     elemento = document.getElementById("labelID");
-    if (elemento!==null) { document.getElementById("labelID").innerHTML = document.getElementById("id").value; }
+    if (elemento!=null) { 
+       document.getElementById("labelID").innerHTML = document.getElementById("id").value; 
+    }
     
  }
 
  function NovoCadastro(Formulario, botaoGravar) {
     LimparForm(Formulario);
     setDisabed(botaoGravar, false);
-    elemento = document.getElementById("labelID");
-    if (elemento!==null) { document.getElementById("labelID").value = "0"; }
-    elemento = document.getElementById("id");
-    if (elemento!==null) { document.getElementById("id").innerHTML = "0"; }
+    document.getElementById("labelID").innerHTML = "0";
+    document.getElementById("id").value = "0";
  }
  
  function setDisabed(botao, pDisabled) {

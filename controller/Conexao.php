@@ -48,9 +48,17 @@ class Conexao extends FuncaoSistema {
  }
 
  public function query($sql) {
-   $r = ibase_query(self::getConexao(), $sql);
+   $r = @ibase_query(self::getConexao(), $sql);
    If ( ibase_errmsg() <> "" ) {
-       Print("Erro no comando SQL <br><br>[$sql]<br><br>".ibase_errmsg());  
+       Print "<br><br><br><br><center><div><h1 class=\"tituloCadastro\">";
+       If ( count(explode("PRIMARY", ibase_errmsg())) > 1 ) {
+          Print("Duplicidade de código (chave primária) ou campo definido valor único!<br><br>");
+       } else If ( count(explode("FOREIGN KEY", ibase_errmsg())) > 1 ) {
+          Print("Registro não pode ser excluído por haver dependências!<br><br>");
+       } else {
+          Print("Erro no comando SQL <br><br>".ibase_errmsg());  
+       }
+       Print "</h1></div></center>";
        Exit;
    }
    return $r;

@@ -356,15 +356,15 @@ public function converteDataHoraParaIB($Data) {
 
  public function popularAssociadoCadParcelas($obj) {
    print "  <option>".self::opcaoSelecione()."</option>\n";
-   print "  <option value='Ativos'>Apenas associados com título ativo</option>\n";
-   print "  <option value='NaoAtivos'>Apenas associados com título não ativo</option>\n";
-   print "  <option value='Todos'>Todos</option>\n";
+   print "  <option value='Ativos'>Todos os associados com título ativo</option>\n";
+   //print "  <option value='NaoAtivos'>Todos os associados com título não ativo</option>\n";
+   //print "  <option value='Todos'>Todos</option>\n";
    
    $sql = "SELECT T.ID, T.NUMERO_TITULO || ' ('||S.SITUACAO ||') - '|| A.NOME||' ('||A.CPF||')' AS TITULO
              FROM TITULO T LEFT JOIN TIPO_TITULO TT ON T.ID_TIPO_TITULO = TT.ID
                         LEFT JOIN ASSOCIADO A ON T.ID_ASSOCIADO = A.ID
                         LEFT JOIN SITUACAO_TITULO S ON T.ID_SITUACAO_TITULO = S.ID 
-            WHERE T.ID > 0 ORDER BY A.NOME, T.ID";
+            WHERE T.ID > 0 AND T.ID_SITUACAO_TITULO = 1 ORDER BY A.NOME, T.ID";
    $r = $obj::query($sql);
    while ($row = ibase_fetch_object($r)) {
        $id = $row->ID;
@@ -374,9 +374,12 @@ public function converteDataHoraParaIB($Data) {
    return true;
  }
 
- public function popularAssociado($obj, $valorSelec) {
+ public function popularAssociado($obj, $valorSelec, $situacao="") {
    print "  <option>".self::opcaoSelecione()."</option>\n";
-   $sql = "SELECT ID, NOME||COALESCE(' ('||CPF||')', '') as NOME FROM ASSOCIADO WHERE ID > 0 ORDER BY 2";
+   if ($situacao="A") {
+       $situacao=" AND ID_SITUACAO = 1 ";
+   }
+   $sql = "SELECT ID, NOME||COALESCE(' ('||CPF||')', '') as NOME FROM ASSOCIADO WHERE ID > 0 $situacao ORDER BY 2";
    $r = $obj::query($sql);
    while ($row = ibase_fetch_object($r)) {
        $id = $row->ID;
@@ -422,9 +425,12 @@ public function converteDataHoraParaIB($Data) {
    return true;
  }
 
- public function popularTitulo($obj, $valorSelec) {
+ public function popularTitulo($obj, $valorSelec, $situacao="") {
    print "  <option>".self::opcaoSelecione()."</option>\n";
-   $sql = "SELECT ID, NUMERO_TITULO FROM TITULO WHERE ID > 0 ORDER BY 2";
+   if ($situacao="A") {
+       $situacao=" AND ID_SITUACAO_TITULO = 1 ";
+   }
+   $sql = "SELECT ID, NUMERO_TITULO FROM TITULO WHERE ID > 0 $situacao ORDER BY 2";
    $r = $obj::query($sql);
    while ($row = ibase_fetch_object($r)) {
        $id = $row->ID;
