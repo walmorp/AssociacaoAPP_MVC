@@ -19,7 +19,7 @@ class DaoControleAssociadoTest extends TesteCase {
         $_GET['nome']='Fulano de Tal';
         $_GET['genero']='1';
         $_GET['endereco']='Rua Geral';
-        $_GET['nascimento']='01/01/2001';
+        $_GET['nascimento']='01/01/1980';
         $_GET['cpf']='652.392.539-00';
         $_GET['cidade']='1';
         $_GET['situacao']='1';

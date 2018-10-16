@@ -34,6 +34,9 @@
   if(document.cadastro.nome.value=="") { alert("O Campo nome é obrigatório!"); return false; }
   if(document.cadastro.endereco.value=="") { alert("O Campo endereço é obrigatório!"); return false; }
   if(document.cadastro.nascimento.value=="") { alert("O Campo nascimento é obrigatório!"); return false; }
+  
+  if (!validaIdade(document.cadastro.nascimento.value, 18)) { alert("O associado deve ter 18 anos!"); return false; }
+  
   if(document.cadastro.cpf.value=="") { alert("O Campo cpf é obrigatório!"); return false; }
   if(document.cadastro.genero.value==OpcaoSelecione) { alert("O Campo gênero é obrigatório!"); return false; }
   if(document.cadastro.cidade.value==OpcaoSelecione) { alert("O Campo cidade é obrigatório!"); return false; }
@@ -257,6 +260,35 @@ function imprimirDiv(nomeDiv, botao){
   return false;
  }
  
+ function validaIdade(data, maxAnosIdade) {
+     if (data === "") {
+         return false;
+     }
+     if (maxAnosIdade === "") {
+         return false;
+     }
+     dataComp = null;
+     try {
+        dataParte = data.split("/");
+        dataComp = new Date(dataParte[2], parseInt(dataParte[1]) - 1, dataParte[0]);
+        max = parseInt(maxAnosIdade);
+        if (max === 'NaN') {
+            return false;
+        }
+     } catch (e) {
+        return false;
+     } 
+
+     dataAtual = new Date();
+     dataLimite = new Date(dataAtual.getFullYear() - max,
+                           dataAtual.getMonth(),
+                           dataAtual.getDate());
+     if (dataComp.getTime() > dataLimite.getTime()) {
+         return false;
+     } else {
+         return true;
+     }
+ }
  function ValidaCampo(vc) {
   if (vc.tagName == "SELECT") {
      if ( vc.selectedIndex == 0 ) {
