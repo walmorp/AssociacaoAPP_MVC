@@ -15,6 +15,9 @@ class DaoControleCidadeTest extends TesteCase {
      */
     protected function setUp() {
         $this->object = new DaoControleCidade;
+        $_GET['id']='1';
+        $_GET['nome']='Criciúma';
+        $_GET['siglaUF']='SC';
     }
 
     /**
@@ -80,7 +83,6 @@ class DaoControleCidadeTest extends TesteCase {
      * @todo   Implement testInsere().
      */
     public function testInsere() {
-       $_GET['id']='';
        $this->assertEquals(true, $this->object->insere());
     }
 
@@ -89,7 +91,6 @@ class DaoControleCidadeTest extends TesteCase {
      * @todo   Implement testAltera().
      */
     public function testAltera() {
-       $_GET['id']='1';
        $this->assertEquals(true, $this->object->altera());
     }
 

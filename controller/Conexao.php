@@ -48,7 +48,7 @@ class Conexao extends FuncaoSistema {
  }
 
  public function query($sql) {
-   $r = @ibase_query(self::getConexao(), $sql);
+   $r = ibase_query(self::getConexao(), $sql);
    If ( ibase_errmsg() <> "" ) {
        Print "<br><br><br><br><center><div><h1 class=\"tituloCadastro\">";
        If ( count(explode("PRIMARY", ibase_errmsg())) > 1 ) {
@@ -56,7 +56,7 @@ class Conexao extends FuncaoSistema {
        } else If ( count(explode("FOREIGN KEY", ibase_errmsg())) > 1 ) {
           Print("Registro não pode ser excluído por haver dependências!<br><br>");
        } else {
-          Print("Erro no comando SQL <br><br>".ibase_errmsg());  
+          Print("Erro ao executar a tarefa!<br><br>");  
        }
        Print "</h1></div></center>";
        Exit;

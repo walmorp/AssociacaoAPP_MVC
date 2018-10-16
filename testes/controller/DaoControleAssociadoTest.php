@@ -15,6 +15,14 @@ class DaoControleAssociadoTest extends TesteCase {
      */
     protected function setUp() {
         $this->object = new DaoControleAssociado;
+        $_GET['id']='1';
+        $_GET['nome']='Fulano de Tal';
+        $_GET['genero']='1';
+        $_GET['endereco']='Rua Geral';
+        $_GET['nascimento']='01/01/2001';
+        $_GET['cpf']='652.392.539-00';
+        $_GET['cidade']='1';
+        $_GET['situacao']='1';
     }
 
     /**
@@ -60,11 +68,11 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::gravar
-     * @todo   Implement testGravar().
+     * @covers DaoControleAssociado::insere
+     * @todo   Implement testInsere().
      */
-    public function testGravar() {
-       $this->assertEquals(true, $this->object->gravar());
+    public function testInsere() {
+       $this->assertEquals(true, $this->object->insere());
     }
 
     /**
@@ -76,23 +84,19 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleAssociado::insere
-     * @todo   Implement testInsere().
-     */
-    public function testInsere() {
-       $_GET['id']='';
-       $_GET['nascimento']='01/01/2001';
-       $this->assertEquals(true, $this->object->insere());
-    }
-
-    /**
      * @covers DaoControleAssociado::altera
      * @todo   Implement testAltera().
      */
     public function testAltera() {
-       $_GET['id']='1';
-       $_GET['nascimento']='01/01/2001';
        $this->assertEquals(true, $this->object->altera());
+    }
+
+    /**
+     * @covers DaoControleAssociado::gravar
+     * @todo   Implement testGravar().
+     */
+    public function testGravar() {
+       $this->assertEquals(true, $this->object->gravar());
     }
 
     /**

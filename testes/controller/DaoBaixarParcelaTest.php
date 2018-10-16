@@ -47,8 +47,9 @@ class DaoBaixarParcelaTest extends TesteCase {
      * @todo   Implement testGetParcela().
      */
     public function testGetParcela() {
-       $_GET['id']='-1';
-       $this->assertEquals(true, $this->object->getParcela());
+       $this->markTestIncomplete('Teste não definido.');
+       //$_GET['id']='-1';
+       //$this->assertEquals(true, $this->object->getParcela());
     }
 
     /**

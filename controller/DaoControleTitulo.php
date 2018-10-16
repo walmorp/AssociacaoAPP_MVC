@@ -31,6 +31,7 @@ class DaoControleTitulo extends Conexao implements Cadastro {
   } else {
      $res = $this::insere();
   }
+  return true;
  }
   
  public function existe($id) {
@@ -112,5 +113,6 @@ class DaoControleTitulo extends Conexao implements Cadastro {
          ORDER BY T.NUMERO_TITULO";
   $Opera = "A;D;C;";
   self::mostraTabelaBDConectado($this, $sql, $Opera, false);
+  return true;
  }
 }

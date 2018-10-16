@@ -15,6 +15,16 @@ class DaoControleCobrancaTest extends TesteCase {
      */
     protected function setUp() {
         $this->object = new DaoControleCobranca;
+        $_GET['id']='1';
+        $_GET['idTitulo']='1';
+        $_GET['idAssociado']='1';
+        $_GET['idTipoCobranca']='1';
+        $_GET['idSituacaoBaixa']='2';
+        $_GET['dataVencimento']='10/10/2018';
+        $_GET['valorNominal']='100';
+        $_GET['valorAcrescimo']='10';
+        $_GET['valorAbatimento']='10';
+        $_GET['valorBaixado']='100';
     }
 
     /**
@@ -60,11 +70,11 @@ class DaoControleCobrancaTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleCobranca::gravar
-     * @todo   Implement testGravar().
+     * @covers DaoControleCobranca::insere
+     * @todo   Implement testInsere().
      */
-    public function testGravar() {
-       $this->assertEquals(true, $this->object->gravar());
+    public function testInsere() {
+       $this->assertEquals(true, $this->object->insere());
     }
 
     /**
@@ -76,21 +86,19 @@ class DaoControleCobrancaTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleCobranca::insere
-     * @todo   Implement testInsere().
-     */
-    public function testInsere() {
-       $_GET['id']='';
-       $this->assertEquals(true, $this->object->insere());
-    }
-
-    /**
      * @covers DaoControleCobranca::altera
      * @todo   Implement testAltera().
      */
     public function testAltera() {
-       $_GET['id']='1';
        $this->assertEquals(true, $this->object->altera());
+    }
+
+    /**
+     * @covers DaoControleCobranca::gravar
+     * @todo   Implement testGravar().
+     */
+    public function testGravar() {
+       $this->assertEquals(true, $this->object->gravar());
     }
 
     /**
@@ -98,7 +106,7 @@ class DaoControleCobrancaTest extends TesteCase {
      * @todo   Implement testApaga().
      */
     public function testApaga() {
-       $this->assertEquals(true, $this->object->apaga('0'));
+       $this->assertEquals(true, $this->object->apaga('1'));
     }
 
     /**

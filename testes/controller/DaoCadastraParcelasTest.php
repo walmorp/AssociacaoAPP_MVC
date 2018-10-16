@@ -15,6 +15,13 @@ class DaoCadastraParcelasTest extends TesteCase {
      */
     protected function setUp() {
         $this->object = new DaoCadastraParcelas;
+        $_GET['idTituloInicio']='1';
+        $_GET['idTituloFinal']='99999';
+        $_GET['idTitulo']='1';
+        $_GET['idTipoCobranca']='1';
+        $_GET['dataVencimento']='10/10/2018';
+        $_GET['valorNominal']='110';
+        $_GET['dataRegistroParcela']='15/10/2018';
     }
 
     /**
@@ -47,7 +54,7 @@ class DaoCadastraParcelasTest extends TesteCase {
      * @todo   Implement testGetTabela().
      */
     public function testGetTabela() {
-       $this->assertEquals('COBRANCA', $this->object->getClassView());
+       $this->assertEquals('COBRANCA', $this->object->getTabela());
     }
 
     /**
@@ -64,23 +71,7 @@ class DaoCadastraParcelasTest extends TesteCase {
      * @todo   Implement testGravar().
      */
     public function testGravar() {
-        $this->markTestIncomplete('Teste não definido.');
+       //$this->markTestIncomplete('Teste não definido.');
+       $this->assertEquals(true, $this->object->gravar());
     }
-
-    /**
-     * @covers DaoCadastraParcelas::gravaVarios
-     * @todo   Implement testGravaVarios().
-     */
-    public function testGravaVarios() {
-        $this->markTestIncomplete('Teste não definido.');
-    }
-
-    /**
-     * @covers DaoCadastraParcelas::gravaCobranca
-     * @todo   Implement testGravaCobranca().
-     */
-    public function testGravaCobranca() {
-        $this->markTestIncomplete('Teste não definido.');
-    }
-
 }

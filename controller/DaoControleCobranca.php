@@ -31,10 +31,11 @@ class DaoControleCobranca extends Conexao implements Cadastro {
   } else {
      $res = $this::insere();
   }
+  return true;
  }
   
  public function existe($id) {
-  if ($this::ler($id)["ID"]=="") {
+  if ($this::ler($id)["ID"]=="0") {
      return false;
   } else {
      return true;
@@ -164,5 +165,6 @@ class DaoControleCobranca extends Conexao implements Cadastro {
          ORDER BY CB.DATA_VENCIMENTO, T.NUMERO_TITULO";
   $Opera = "A;D;C;B;I;";
   self::mostraTabelaBDConectado($this, $sql, $Opera, false);
+  return true;
  }
 }

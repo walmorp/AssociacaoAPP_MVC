@@ -30,7 +30,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testOpcaoSelecione().
      */
     public function testOpcaoSelecione() {
-       $this->markTestIncomplete('Teste não definido.');
+       //$this->markTestIncomplete('Teste não definido.');
+       $this->assertContains('[Selecione...]', $this->object->opcaoSelecione());
     }
 
     /**
@@ -158,9 +159,7 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testMostraCampoID().
      */
     public function testMostraCampoID() {
-        $this->assertTrue($this->object->mostraCampoID("990"));
-        //$this->assertContains(">&nbsp;991<", $this->object->mostraCampoID("991"));
-        //$this->assertContains("value=\"992\"", $this->object->mostraCampoID("992"));
+       $this->assertContains('1', $this->object->mostraCampoID("1"));
     }
 
     /**

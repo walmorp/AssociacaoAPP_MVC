@@ -15,6 +15,9 @@ class DaoControleTipoCobrancaTest extends TesteCase {
      */
     protected function setUp() {
         $this->object = new DaoControleTipoCobranca;
+        $_GET['id']='1';
+        $_GET['descricao']='Tipo Cobranca';
+        $_GET['sigla']='TC';
     }
 
     /**
@@ -60,11 +63,12 @@ class DaoControleTipoCobrancaTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleTipoCobranca::gravar
-     * @todo   Implement testGravar().
+     * @covers DaoControleTipoCobranca::insere
+     * @todo   Implement testInsere().
      */
-    public function testGravar() {
-       $this->assertEquals(true, $this->object->gravar());
+    public function testInsere() {
+        $this->markTestIncomplete('Teste não definido.');
+       //$this->assertEquals(true, $this->object->insere());
     }
 
     /**
@@ -76,21 +80,19 @@ class DaoControleTipoCobrancaTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleTipoCobranca::insere
-     * @todo   Implement testInsere().
-     */
-    public function testInsere() {
-       $_GET['id']='';
-       $this->assertEquals(true, $this->object->insere());
-    }
-
-    /**
      * @covers DaoControleTipoCobranca::altera
      * @todo   Implement testAltera().
      */
     public function testAltera() {
-       $_GET['id']='1';
        $this->assertEquals(true, $this->object->altera());
+    }
+
+    /**
+     * @covers DaoControleTipoCobranca::gravar
+     * @todo   Implement testInsere().
+     */
+    public function testGravar() {
+       $this->assertEquals(true, $this->object->gravar());
     }
 
     /**
