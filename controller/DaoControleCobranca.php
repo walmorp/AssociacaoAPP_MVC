@@ -150,9 +150,25 @@ class DaoControleCobranca extends Conexao implements Cadastro {
  }
   
  public function lista($filtro="") {
-  $where="";
+  $idTipoCobranca  = self::getCampo("idTipoCobranca");
+  $idSituacaoBaixa = self::getCampo("idSituacaoBaixa");
+  $idTitulo        = $this::getCampo("idTitulo");
+  $idAssociado     = $this::getCampo("idAssociado");
+  $where="WHERE 1=1";
   if ($filtro!="") {
-     $where="WHERE A.NOME||' '||A.CPF LIKE '%$filtro%'";
+      $where=" AND A.NOME||' '||A.CPF LIKE '%$filtro%'";
+  }
+  if (($idTipoCobranca !="") && ($idTipoCobranca !="[Selecione...]")) {
+      $where .= " AND CB.ID_TIPO_COBRANCA = $idTipoCobranca ";
+  }
+  if (($idSituacaoBaixa !="") && ($idSituacaoBaixa !="[Selecione...]")) {
+      $where .= " AND CB.ID_SITUACAO_BAIXA = $idSituacaoBaixa ";
+  }
+  if (($idTitulo !="") && ($idTitulo !="[Selecione...]")) {
+      $where .= " AND CB.ID_TITULO = $idTitulo ";
+  }
+  if (($idAssociado !="") && ($idAssociado !="[Selecione...]")) {
+      $where .= " AND CB.ID_ASSOCIADO = $idAssociado ";
   }
   $sql = "SELECT CB.ID AS PARCELA, TC.DESCRICAO, CB.DATA_VENCIMENTO, CB.VALOR_NOMINAL, CB.VALOR_BAIXADO, S.SITUACAO,
                A.NOME||' ('||A.CPF||')' AS ASSOCIADO, T.NUMERO_TITULO, TT.TIPO
