@@ -25,6 +25,15 @@ class DaoRelacionaParcelasAssociado extends Conexao implements Relatorio {
     Print "<input type=\"button\" onclick=\"JavaScript:history.back();\" value=\"Voltar\">";
     $id = $this::getCampo("id");
   }
+  $where = "";
+  $idTipoCobranca  = self::getCampo("idTipoCobranca");
+  $idSituacaoBaixa = self::getCampo("idSituacaoBaixa");
+  if (($idTipoCobranca !="") && ($idTipoCobranca !="[Selecione...]")) {
+      $where .= " AND CB.ID_TIPO_COBRANCA = $idTipoCobranca ";
+  }
+  if (($idSituacaoBaixa !="") && ($idSituacaoBaixa !="[Selecione...]")) {
+      $where .= " AND CB.ID_SITUACAO_BAIXA = $idSituacaoBaixa ";
+  }
   $MostrarMetaDados = false;
   $sql = "SELECT CB.ID AS PARCELA, TC.DESCRICAO, CB.DATA_VENCIMENTO, CB.VALOR_NOMINAL, CB.VALOR_BAIXADO, S.SITUACAO,
                  T.NUMERO_TITULO, TT.TIPO
@@ -33,7 +42,8 @@ class DaoRelacionaParcelasAssociado extends Conexao implements Relatorio {
                             LEFT JOIN ASSOCIADO A ON CB.ID_ASSOCIADO = A.ID
                             LEFT JOIN TIPO_COBRANCA TC ON CB.ID_TIPO_COBRANCA = TC.ID 
                             LEFT JOIN SITUACAO_BAIXA S ON CB.ID_SITUACAO_BAIXA = S.ID
-         WHERE A.ID = $id
+         WHERE A.ID = $id 
+             $where
          UNION                                         
          SELECT NULL AS PARCELA, 'Quantidade: ' || COUNT(*) AS DESCRICAO, NULL AS DATA_VENCIMENTO, SUM(CB.VALOR_NOMINAL) AS VALOR_NOMINAL, SUM(CB.VALOR_BAIXADO) AS VALOR_BAIXADO, NULL AS SITUACAO,
                  NULL AS NUMERO_TITULO, NULL AS TIPO
@@ -43,6 +53,7 @@ class DaoRelacionaParcelasAssociado extends Conexao implements Relatorio {
                             LEFT JOIN TIPO_COBRANCA TC ON CB.ID_TIPO_COBRANCA = TC.ID 
                             LEFT JOIN SITUACAO_BAIXA S ON CB.ID_SITUACAO_BAIXA = S.ID
          WHERE A.ID = $id
+             $where
          ORDER BY 3 NULLS LAST, 7";
   if ($this::campoExiste("OperaRParc")) {
       $Opera = "I;";

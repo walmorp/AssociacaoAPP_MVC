@@ -152,8 +152,8 @@ class DaoControleCobranca extends Conexao implements Cadastro {
  public function lista($filtro="") {
   $idTipoCobranca  = self::getCampo("idTipoCobranca");
   $idSituacaoBaixa = self::getCampo("idSituacaoBaixa");
-  $idTitulo        = $this::getCampo("idTitulo");
-  $idAssociado     = $this::getCampo("idAssociado");
+  $idTitulo        = self::getCampo("idTitulo");
+  $idAssociado     = self::getCampo("idAssociado");
   $where="WHERE 1=1";
   if ($filtro!="") {
       $where=" AND A.NOME||' '||A.CPF LIKE '%$filtro%'";
