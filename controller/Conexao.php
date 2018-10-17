@@ -31,7 +31,7 @@ class Conexao extends FuncaoSistema {
  }
 
  public function fecha() {
-   ibase_close($this::getConexao());
+   @ibase_close($this::getConexao());
    If ( ibase_errmsg() <> "" ) {
       Print("Erro no comando SQL - Close <br><br>".ibase_errmsg());  
       Exit;
@@ -40,7 +40,7 @@ class Conexao extends FuncaoSistema {
  }
 
  public function freeResult($r) {
-   Ibase_free_result($r);
+   @Ibase_free_result($r);
    If ( ibase_errmsg() <> "" ) {
        Print("Erro no comando SQL - Free_result <br><br>".ibase_errmsg());  
    }
@@ -48,9 +48,9 @@ class Conexao extends FuncaoSistema {
  }
 
  public function query($sql) {
-   $r = ibase_query(self::getConexao(), $sql);
+   $r = @ibase_query(self::getConexao(), $sql);
    If ( ibase_errmsg() <> "" ) {
-       Print "<br><br><br><br><center><div><h1 class=\"tituloCadastro\">";
+       Print "<br><br><br><br><center><div><h2 class=\"tituloCadastro\">";
        If ( count(explode("PRIMARY", ibase_errmsg())) > 1 ) {
           Print("Duplicidade de código (chave primária) ou campo definido valor único!<br><br>");
        } else If ( count(explode("FOREIGN KEY", ibase_errmsg())) > 1 ) {
@@ -58,7 +58,7 @@ class Conexao extends FuncaoSistema {
        } else {
           Print("Erro ao executar a tarefa!<br><br>");  
        }
-       Print "</h1></div></center>";
+       Print "</h2></div></center>";
        Exit;
    }
    return $r;
