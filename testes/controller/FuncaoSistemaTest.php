@@ -30,7 +30,6 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testOpcaoSelecione().
      */
     public function testOpcaoSelecione() {
-       //$this->markTestIncomplete('Teste não definido.');
        $this->assertContains('[Selecione...]', $this->object->opcaoSelecione());
     }
 

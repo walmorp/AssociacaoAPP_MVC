@@ -55,6 +55,8 @@ class Conexao extends FuncaoSistema {
           Print("Duplicidade de código (chave primária) ou campo definido valor único!<br><br>");
        } else If ( count(explode("FOREIGN KEY", ibase_errmsg())) > 1 ) {
           Print("Registro não pode ser excluído por haver dependências!<br><br>");
+       } else If ( count(explode("DATA_NASCIMENTO_INVALIDA", ibase_errmsg())) > 1 ) {
+          Print("Data de nascimento menor que a permitida!<br><br>");
        } else {
           Print("Erro ao executar a tarefa!<br><br>");  
        }

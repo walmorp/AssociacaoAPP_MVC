@@ -8,6 +8,7 @@ class ConexaoTest extends TesteCase {
      * @var Conexao
      */
     protected $object;
+    protected $conexao;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -15,6 +16,7 @@ class ConexaoTest extends TesteCase {
      */
     protected function setUp() {
         $this->object = new Conexao;
+        $this->conexao=$this->object->getConexao();
     }
 
     /**
@@ -30,8 +32,23 @@ class ConexaoTest extends TesteCase {
      * @todo   Implement testGetConexao().
      */
     public function testGetConexao() {
-       $this->markTestIncomplete('Teste não definido.');
-       //$this->assertEquals(true, $this->object->getConexao());
+       $this->assertEquals($this->conexao, $this->object->getConexao());
+    }
+
+    /**
+     * @covers Conexao::freeResult
+     * @todo   Implement testFreeResult().
+     */
+    public function testFreeResult() {
+       $this->assertEquals(true, $this->object->freeResult($this->conexao));
+    }
+
+    /**
+     * @covers Conexao::query
+     * @todo   Implement testQuery().
+     */
+    public function testQuery() {
+       $this->assertInstanceOf('stdClass', ibase_fetch_object($this->object->query("SELECT 'true' from rdb\$database")));
     }
 
     /**
@@ -40,23 +57,6 @@ class ConexaoTest extends TesteCase {
      */
     public function testFecha() {
        $this->assertEquals(true, $this->object->fecha());
-    }
-
-    /**
-     * @covers Conexao::freeResult
-     * @todo   Implement testFreeResult().
-     */
-    public function testFreeResult() {
-       $this->markTestIncomplete('Teste não definido.');
-       //$this->assertEquals(true, $this->object->freeResult(null));
-    }
-
-    /**
-     * @covers Conexao::query
-     * @todo   Implement testQuery().
-     */
-    public function testQuery() {
-       $this->markTestIncomplete('Teste não definido.');
     }
 
 }
