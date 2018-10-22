@@ -1,4 +1,4 @@
-﻿<?php
+<?php
   require_once ('defineVar.php');
   require_once ('TesteCase.php');
   require_once (__APP_.'controller/DaoImprimirParcela.php');

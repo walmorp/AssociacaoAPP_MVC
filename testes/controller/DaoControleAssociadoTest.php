@@ -82,6 +82,14 @@ class DaoControleAssociadoTest extends TesteCase {
     }
 
     /**
+     * @covers DaoControleAssociado::apaga
+     * @todo   Implement testApaga().
+     */
+    public function testApaga() {
+       $this->assertEquals(true, $this->object->apaga('0'));
+    }
+
+    /**
      * @covers DaoControleAssociado::altera
      * @todo   Implement testAltera().
      */
@@ -95,14 +103,6 @@ class DaoControleAssociadoTest extends TesteCase {
      */
     public function testGravar() {
        $this->assertEquals(true, $this->object->gravar());
-    }
-
-    /**
-     * @covers DaoControleAssociado::apaga
-     * @todo   Implement testApaga().
-     */
-    public function testApaga() {
-       $this->assertEquals(true, $this->object->apaga('0'));
     }
 
     /**

@@ -80,6 +80,14 @@ class DaoControleTituloTest extends TesteCase {
     }
 
     /**
+     * @covers DaoControleTitulo::apaga
+     * @todo   Implement testApaga().
+     */
+    public function testApaga() {
+       $this->assertEquals(true, $this->object->apaga('0'));
+    }
+
+    /**
      * @covers DaoControleTitulo::insere
      * @todo   Implement testInsere().
      */
@@ -93,14 +101,6 @@ class DaoControleTituloTest extends TesteCase {
      */
     public function testAltera() {
        $this->assertEquals(true, $this->object->altera());
-    }
-
-    /**
-     * @covers DaoControleTitulo::apaga
-     * @todo   Implement testApaga().
-     */
-    public function testApaga() {
-       $this->assertEquals(true, $this->object->apaga('0'));
     }
 
     /**

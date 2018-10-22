@@ -5,7 +5,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/controller/DaoControleTipoCobranca.php</file>
-            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/controller/Conexao.php</file>
+            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/testes/controller/DaoControleTipoCobrancaTest.php</file>
+            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/controller/FuncaoSistema.php</file>
+            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/view/ControleTitulo.php</file>
+            <file>file:/C:/Apache24/htdocs/AssociacaoAPP_MVC/view/ControleAssociado.php</file>
         </group>
     </open-files>
 </project-private>

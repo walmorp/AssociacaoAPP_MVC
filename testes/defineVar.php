@@ -1,5 +1,5 @@
 <?php
-  $_GET['id']='1';
+//  $_GET['id']='1';
   $_SERVER['HTTP_HOST']='PHPInut';
   $_SERVER['HTTP_REFERER']='PHPInut';
   if ((!defined('__BD_'))       or ('__BD_' == ''))       {define ('__BD_', '127.0.0.1:C:/Apache24/htdocs/AssociacaoAPP_MVC/dados/BANCOASSOCIACAO_TESTE.FDB');};
