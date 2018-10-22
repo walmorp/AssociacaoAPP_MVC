@@ -64,9 +64,7 @@ class DaoControleCobrancaTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-        $this->markTestIncomplete('Teste não definido.');
-       //$this->assertContains('<html>', $this->object->executaView());
-       //$this->assertContains('</html>', $this->object->executaView());
+        $this->assertEquals(true, $this->object->executaView());
     }
 
     /**
@@ -86,11 +84,11 @@ class DaoControleCobrancaTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleCobranca::altera
-     * @todo   Implement testAltera().
+     * @covers DaoControleCobranca::apaga
+     * @todo   Implement testApaga().
      */
-    public function testAltera() {
-       $this->assertEquals(true, $this->object->altera());
+    public function testApaga() {
+       $this->assertEquals(true, $this->object->apaga('1'));
     }
 
     /**
@@ -102,11 +100,11 @@ class DaoControleCobrancaTest extends TesteCase {
     }
 
     /**
-     * @covers DaoControleCobranca::apaga
-     * @todo   Implement testApaga().
+     * @covers DaoControleCobranca::altera
+     * @todo   Implement testAltera().
      */
-    public function testApaga() {
-       $this->assertEquals(true, $this->object->apaga('1'));
+    public function testAltera() {
+       $this->assertEquals(true, $this->object->altera());
     }
 
     /**
@@ -114,7 +112,7 @@ class DaoControleCobrancaTest extends TesteCase {
      * @todo   Implement testLer().
      */
     public function testLer() {
-       $this->assertContains(false, $this->object->ler('0'));
+       $this->assertCount(13, $this->object->ler('1'));
     }
 
     /**

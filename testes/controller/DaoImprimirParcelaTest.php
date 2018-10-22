@@ -40,8 +40,8 @@ class DaoImprimirParcelaTest extends TesteCase {
      * @todo   Implement testMostraRelatorio().
      */
     public function testMostraRelatorio() {
-       //$this->assertFalse($this->object->mostraRelatorio(), true);
-       $this->markTestIncomplete('Teste não definido.');
+       $_GET['id']='5';
+       $this->assertInstanceOf('stdClass', ibase_fetch_object($this->object->mostraRelatorio()));
     }
 
     /**
@@ -49,9 +49,7 @@ class DaoImprimirParcelaTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-       //$this->assertFalse($this->object->executaView(), true);
-       // Remove the following lines when you implement this test.
-       $this->markTestIncomplete('Teste não definido.');
+        $this->assertEquals(true, $this->object->executaView());
     }
 
 }

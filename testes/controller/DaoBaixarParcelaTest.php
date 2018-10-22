@@ -1,6 +1,7 @@
 <?php
   require_once ('defineVar.php');
   require_once ('TesteCase.php');
+  require_once (__APP_.'controller/Conexao.php');
   require_once (__APP_.'controller/DaoBaixarParcela.php');
 class DaoBaixarParcelaTest extends TesteCase {
 
@@ -15,6 +16,12 @@ class DaoBaixarParcelaTest extends TesteCase {
      */
     protected function setUp() {
         $this->object = new DaoBaixarParcela;
+        $_GET['id']='5';
+        $_GET['$dataBaixa']='10/10/2018';
+        $_GET['valorNominal']='100';
+        $_GET['valorAcrescimo']='10';
+        $_GET['valorAbatimento']='10';
+        $_GET['valorBaixado']='100';
     }
 
     /**
@@ -38,18 +45,7 @@ class DaoBaixarParcelaTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-       $this->markTestIncomplete('Teste não definido.');
-       //$this->assertContains('BaixarParcela', $this->object->executaView());
-    }
-
-    /**
-     * @covers DaoBaixarParcela::getParcela
-     * @todo   Implement testGetParcela().
-     */
-    public function testGetParcela() {
-       $this->markTestIncomplete('Teste não definido.');
-       //$_GET['id']='-1';
-       //$this->assertEquals(true, $this->object->getParcela());
+       $this->assertEquals(true, $this->object->executaView());
     }
 
     /**
@@ -57,8 +53,15 @@ class DaoBaixarParcelaTest extends TesteCase {
      * @todo   Implement testGravar().
      */
     public function testGravar() {
-       $_GET['id']='-1';
        $this->assertEquals(true, $this->object->gravar());
+    }
+
+    /**
+     * @covers DaoBaixarParcela::getParcela
+     * @todo   Implement testGetParcela().
+     */
+    public function testGetParcela() {
+       $this->assertInstanceOf('stdClass', ibase_fetch_object($this->object->getParcela()));
     }
 
 }

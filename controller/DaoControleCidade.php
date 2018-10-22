@@ -27,11 +27,10 @@ class DaoControleCidade extends Conexao implements Cadastro {
  public function gravar() {
   $id = $this::getCampo("id", "0");
   if ($this::existe($id)) {
-     $res = $this::altera();
+     return $this::altera();
   } else {
-     $res = $this::insere();
+     return $this::insere();
   }
-  return true;
  }
   
  public function existe($id) {

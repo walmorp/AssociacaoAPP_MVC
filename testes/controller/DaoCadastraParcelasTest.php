@@ -45,8 +45,7 @@ class DaoCadastraParcelasTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-        $this->markTestIncomplete('Teste não definido.');
-       //$this->assertContains('CadastraParcelas', $this->object->executaView());
+        $this->assertEquals(true, $this->object->executaView());
     }
 
     /**
@@ -62,8 +61,7 @@ class DaoCadastraParcelasTest extends TesteCase {
      * @todo   Implement testGetParcelaProcessadas().
      */
     public function testGetParcelaProcessadas() {
-        $this->markTestIncomplete('Teste não definido.');
-       //$this->assertContains('CadastraParcelas', $this->object->getParcelaProcessadas());
+       $this->assertEquals(true, $this->object->getParcelaProcessadas());
     }
 
     /**
@@ -71,7 +69,6 @@ class DaoCadastraParcelasTest extends TesteCase {
      * @todo   Implement testGravar().
      */
     public function testGravar() {
-       //$this->markTestIncomplete('Teste não definido.');
        $this->assertEquals(true, $this->object->gravar());
     }
 }

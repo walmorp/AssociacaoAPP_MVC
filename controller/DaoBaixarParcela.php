@@ -24,17 +24,14 @@ class DaoBaixarParcela extends Conexao implements View {
                             LEFT JOIN ASSOCIADO A ON CB.ID_ASSOCIADO = A.ID
          WHERE CB.ID = $id
          ORDER BY CB.DATA_VENCIMENTO, T.NUMERO_TITULO";
+  PRINT $sql;
   $r = self::query($sql);
   return $r;
  }
  
  public function gravar() {
   $id              = self::getCampo("id");
-  $dataBaixa       = self::converteDataParaIB($this::getCampo("dataBaixa"));
-  $valorAcrescimo  = "0".self::getCampo("valorAcrescimo");
-  $valorAbatimento = "0".self::getCampo("valorAbatimento");
-  $valorBaixado    = "0".self::getCampo("valorBaixado");
-
+  $dataBaixa       = self::converteDataParaIB(self::getCampo("dataBaixa"));
   $valorNominal    = doubleval("0".self::getCampo("valorNominal"));
   $valorAcrescimo  = doubleval("0".self::getCampo("valorAcrescimo"));
   $valorAbatimento = doubleval("0".self::getCampo("valorAbatimento"));
@@ -76,6 +73,7 @@ class DaoBaixarParcela extends Conexao implements View {
            $gravou=false;
         } else {
            print "Parcela gravada";
+           $gravou=true;
         }
     }
     print "</h2></div></center>";

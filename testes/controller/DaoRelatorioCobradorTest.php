@@ -38,9 +38,7 @@ class DaoRelatorioCobradorTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-        $this->markTestIncomplete('Teste não definido.');
-       //$this->assertContains('<html>', $this->object->executaView());
-       //$this->assertContains('</html>', $this->object->executaView());
+        $this->assertEquals(true, $this->object->executaView());
     }
 
     /**

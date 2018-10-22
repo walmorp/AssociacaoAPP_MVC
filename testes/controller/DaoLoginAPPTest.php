@@ -38,9 +38,7 @@ class DaoLoginAPPTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-        $this->markTestIncomplete('Teste não definido.');
-       //$this->assertContains('<html>', $this->object->executaView());
-       //$this->assertContains('</html>', $this->object->executaView());
+        $this->assertEquals(true, $this->object->executaView());
     }
 
     /**
@@ -48,7 +46,9 @@ class DaoLoginAPPTest extends TesteCase {
      * @todo   Implement testExecLogin().
      */
     public function testExecLogin() {
-        $this->markTestIncomplete('Teste não definido.');
+        $_GET['id']='1';
+        $_GET['cpf']='652.392.539-00';
+        $this->assertEquals("Fulano de Tal", $this->object->execLogin());
     }
 
 }

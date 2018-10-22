@@ -1,6 +1,7 @@
 <?php
   require_once ('defineVar.php');
   require_once ('TesteCase.php');
+  require_once (__APP_.'controller/DaoControleAssociado.php');
   require_once (__APP_.'controller/FuncaoSistema.php');
 class FuncaoSistemaTest extends TesteCase {
 
@@ -118,7 +119,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testIniciaDados().
      */
     public function testIniciaDados() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new DaoControleAssociado();
+       $this->assertCount(8, $obj->apagarDados($obj, 0));
     }
 
     /**
@@ -126,7 +128,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testAlterarDados().
      */
     public function testAlterarDados() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new DaoControleAssociado();
+       $this->assertCount(8, $obj->alterarDados($obj, 0));
     }
 
     /**
@@ -134,7 +137,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testApagarDados().
      */
     public function testApagarDados() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new DaoControleAssociado();
+       $this->assertCount(8, $obj->apagarDados($obj, 0));
     }
 
     /**
@@ -142,7 +146,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testConsultarDados().
      */
     public function testConsultarDados() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new DaoControleAssociado();
+       $this->assertCount(8, $obj->consultarDados($obj, 1));
     }
 
     /**
@@ -150,7 +155,9 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testMontaDados().
      */
     public function testMontaDados() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertCount(1, $this->object->montaDados($obj->query("SELECT 'true' from rdb\$database")));
+       $this->assertContains("true", $this->object->montaDados($obj->query("SELECT 'true' from rdb\$database")));
     }
 
     /**
@@ -158,7 +165,7 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testMostraCampoID().
      */
     public function testMostraCampoID() {
-       $this->assertContains('1', $this->object->mostraCampoID("1"));
+       $this->assertContains("value='1'", $this->object->mostraCampoID("1"));
     }
 
     /**
@@ -166,7 +173,9 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testRetornaProximoID().
      */
     public function testRetornaProximoID() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new DaoControleAssociado();
+       $maxID = $this->object->montaDados($obj->query("SELECT MAX(ID) + 1 AS ID FROM ".$obj->getTabela()));
+       $this->assertEquals($maxID['ID'], $obj->retornaProximoID($obj));
     }
 
     /**
@@ -174,7 +183,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testMostraTabelaBDConectado().
      */
     public function testMostraTabelaBDConectado() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new DaoControleAssociado();
+       $this->assertEquals(true, $obj->mostraTabelaBDConectado($obj, "SELECT 'true' from rdb\$database", "", false));
     }
 
     /**
@@ -182,7 +192,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testMostraAviso().
      */
     public function testMostraAviso() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->mostraAviso());
     }
 
     /**
@@ -190,7 +201,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularAssociadoCadParcelas().
      */
     public function testPopularAssociadoCadParcelas() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularAssociadoCadParcelas($obj));
     }
 
     /**
@@ -198,7 +210,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularAssociado().
      */
     public function testPopularAssociado() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularAssociado($obj, ""));
     }
 
     /**
@@ -206,7 +219,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularTipoCobranca().
      */
     public function testPopularTipoCobranca() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularTipoCobranca($obj, ""));
     }
 
     /**
@@ -214,7 +228,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularSituacaoBaixa().
      */
     public function testPopularSituacaoBaixa() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularSituacaoBaixa($obj, ""));
     }
 
     /**
@@ -222,7 +237,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularTitulo().
      */
     public function testPopularTitulo() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularTitulo($obj, ""));
     }
 
     /**
@@ -230,7 +246,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularTipoTitulo().
      */
     public function testPopularTipoTitulo() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularTipoTitulo($obj, ""));
     }
 
     /**
@@ -238,7 +255,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularSituacaoTitulo().
      */
     public function testPopularSituacaoTitulo() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularSituacaoTitulo($obj, ""));
     }
 
     /**
@@ -246,7 +264,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularGenero().
      */
     public function testPopularGenero() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularGenero($obj, ""));
     }
 
     /**
@@ -254,7 +273,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularCidade().
      */
     public function testPopularCidade() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularCidade($obj, ""));
     }
 
     /**
@@ -262,7 +282,8 @@ class FuncaoSistemaTest extends TesteCase {
      * @todo   Implement testPopularSituacaoAssociado().
      */
     public function testPopularSituacaoAssociado() {
-       $this->markTestIncomplete('Teste não definido.');
+       $obj = new Conexao();
+       $this->assertEquals(true, $obj->popularSituacaoAssociado($obj, ""));
     }
 
 }

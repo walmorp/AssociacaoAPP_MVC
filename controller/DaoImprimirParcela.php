@@ -19,7 +19,7 @@ class DaoImprimirParcela extends Conexao implements Relatorio {
   if (isSet($_SESSION['cpf'])) {
      $id = $_SESSION['id'];
   } else {
-     $id = $this::getCampo("id");
+     $id = self::getCampo("id");
   }
   $sql = "SELECT CB.*, S.SITUACAO, A.NOME AS ASSOCIADO, A.CPF, T.NUMERO_TITULO, TC.DESCRICAO
           FROM COBRANCA CB  LEFT JOIN TIPO_COBRANCA TC ON CB.ID_TIPO_COBRANCA = TC.ID
@@ -28,7 +28,7 @@ class DaoImprimirParcela extends Conexao implements Relatorio {
                             LEFT JOIN SITUACAO_BAIXA S ON A.ID_SITUACAO = S.ID
          WHERE CB.ID = $id
          ORDER BY CB.DATA_VENCIMENTO, T.NUMERO_TITULO";
-  $r = $this::query($sql);
+  $r = self::query($sql);
   return $r;
  }
 }

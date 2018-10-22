@@ -7,7 +7,6 @@ class Conexao extends FuncaoSistema {
  private $conexao;
  
  public function __construct() {
-   //Print "<br>Conexao__construct: $this->conexao"; 
    $this->initialize();
  }
 

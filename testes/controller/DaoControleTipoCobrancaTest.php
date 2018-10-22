@@ -57,9 +57,7 @@ class DaoControleTipoCobrancaTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-        $this->markTestIncomplete('Teste não definido.');
-       //$this->assertContains('<html>', $this->object->executaView());
-       //$this->assertContains('</html>', $this->object->executaView());
+        $this->assertEquals(true, $this->object->executaView());
     }
 
     /**
@@ -68,7 +66,7 @@ class DaoControleTipoCobrancaTest extends TesteCase {
      */
     public function testInsere() {
         $this->markTestIncomplete('Teste não definido.');
-       //$this->assertEquals(true, $this->object->insere());
+        //$this->assertEquals(true, $this->object->insere());
     }
 
     /**

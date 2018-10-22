@@ -38,9 +38,7 @@ class DaoHomeTest extends TesteCase {
      * @todo   Implement testExecutaView().
      */
     public function testExecutaView() {
-        $this->markTestIncomplete('Teste não definido.');
-       //$this->assertContains('<html>', $this->object->executaView());
-       //$this->assertContains('</html>', $this->object->executaView());
+        $this->assertEquals(true, $this->object->executaView());
     }
 
     /**
@@ -48,7 +46,7 @@ class DaoHomeTest extends TesteCase {
      * @todo   Implement testMostraParcelasEmAberto().
      */
     public function testMostraParcelasEmAberto() {
-        $this->markTestIncomplete('Teste não definido.');
+        $this->assertEquals(true, $this->object->mostraParcelasEmAberto());
     }
 
     /**
@@ -56,7 +54,7 @@ class DaoHomeTest extends TesteCase {
      * @todo   Implement testMostraAssociadosAtivos().
      */
     public function testMostraAssociadosAtivos() {
-        $this->markTestIncomplete('Teste não definido.');
+        $this->assertEquals(true, $this->object->mostraAssociadosAtivos());
     }
 
     /**
