@@ -1,7 +1,10 @@
 ﻿<?php
 require_once ('defineVar.php');
 class FuncaoSistema {
-    
+    /**
+     * @covers FuncaoSistema::opcaoSelecione
+     * @todo   Implement testOpcaoSelecione().
+     */
  public function opcaoSelecione() {
     return "[Selecione...]";
  }
