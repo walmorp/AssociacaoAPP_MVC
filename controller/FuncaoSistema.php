@@ -167,7 +167,6 @@ public function converteDataHoraParaIB($Data) {
 
  public function mostraCampoID($id){
     return "<div class='campoID' name='labelID' id='labelID'>&nbsp;$id</div><input class='campo' name='id' type='hidden' id='id' value='$id' />";
-    //return true;
  }
 
  public function retornaProximoID($obj) {

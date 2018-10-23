@@ -1,6 +1,6 @@
 ﻿<?php 
  require_once ('defineVar.php');
- require_once (__APP_.'controller/ControleCadastro.php');
+ include (__APP_.'controller/ControleCadastro.php');
  $idTipoCobranca  = self::getCampo("idTipoCobranca");
  $idSituacaoBaixa = self::getCampo("idSituacaoBaixa");
  $idTitulo        = self::getCampo("idTitulo");

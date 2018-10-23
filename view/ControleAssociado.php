@@ -1,6 +1,6 @@
 ﻿<?php 
  require_once ('defineVar.php');
- require_once (__APP_.'controller/ControleCadastro.php');
+ include (__APP_.'controller/ControleCadastro.php');
  $opSituacaoAssociado = $this::getCampo("opSA", "A");
 ?>
 <!DOCTYPE html>

@@ -98,12 +98,10 @@ class DaoControleTipoCobrancaTest extends TesteCase {
      */
     public function testInsere() {
        $id = $this->object->retornaProximoID($this->object);
-       print 'id: $id';
        $_GET['id']=$id;
-       $_GET['descricao']='Tipo Cobranca $id';
-       $_GET['sigla']='$id';
-       $this->markTestIncomplete('Teste não definido.');
-       //$this->assertEquals(true, $this->object->insere());
+       $_GET['descricao']='Tipo Cobranca ' . $id;
+       $_GET['sigla']=''.$id;
+       $this->assertEquals(true, $this->object->insere());
     }
 
     /**
